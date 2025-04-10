@@ -31,7 +31,7 @@ const GlobalSearch = () => {
         <source src="/videos/home.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <div className="absolute z-1 w-full top-0 left-0 w-full flex items-center flex-col gap-2 justify-center h-full">
+      <div className="absolute z-1 w-full bg-primary-opacity5 top-0 left-0 w-full flex items-center flex-col gap-2 justify-center h-full">
         <div className="grid  w-full px-8 gap-3 py-2 md:py-14 flex-col md:grid-cols-[max-content_auto_max-content] items-center">
           <div className="flex justify-center items-center">
             <div className="flex flex-row md:flex-col items-center justify-center gap-2 relative">

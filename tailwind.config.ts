@@ -21,6 +21,7 @@ export default {
         primary: {
           DEFAULT: "#000000",
           light: "#ffffff",
+          opacity5: "#00000080",
         },
         secondary: {
           DEFAULT: "#111111",
