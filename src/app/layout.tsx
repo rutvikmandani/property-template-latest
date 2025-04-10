@@ -5,7 +5,7 @@ import { Providers } from "./providers";
 import Header from "@/component/Layout/Header";
 import Footer from "@/component/Layout/Footer";
 import ProgressProvider from "@/component/ProgressBar";
-import QueryLoader, { FullPageLoader } from "@/component/Loader";
+import { FullPageLoader } from "@/component/Loader";
 import { Suspense } from "react";
 import { League_Spartan } from "next/font/google";
 
@@ -37,7 +37,6 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
-          {/* <QueryLoader /> */}
           <Suspense fallback={<FullPageLoader />}>
             <ProgressProvider>
               <div className="h-full w-full bg-secondary-bg min-h-screen">
