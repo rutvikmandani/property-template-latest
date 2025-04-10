@@ -25,14 +25,14 @@ const GlobalSearch = () => {
   }, []);
   return (
     <div
-      className={`max-h-[410px] relative top-0 left-0 overflow-hidden w-full sm:max-h-[500px] md:max-h-[calc(100vh-100px)]`}
+      className={`h-[410px] relative top-0 left-0 overflow-hidden w-full sm:h-[500px] md:h-[calc(100vh-100px)]`}
     >
-      <video autoPlay muted loop playsInline className="object-cover">
+      <video autoPlay muted loop playsInline className="w-full h-full object-cover">
         <source src="/videos/home.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className="absolute z-1 w-full bg-primary-opacity5 top-0 left-0 w-full flex items-center flex-col gap-2 justify-center h-full">
-        <div className="grid  w-full px-8 gap-3 py-2 md:py-14 flex-col md:grid-cols-[max-content_auto_max-content] items-center">
+        <div className="grid  w-full px-8 gap-3 py-2 md:py-14 flex-col md:grid-cols-[max-content_auto_max-content] items-center max-w-7xl">
           <div className="flex justify-center items-center">
             <div className="flex flex-row md:flex-col items-center justify-center gap-2 relative">
               <AnimatePresence>
