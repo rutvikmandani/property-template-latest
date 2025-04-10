@@ -6,6 +6,7 @@ import styles from "@/styles/Container.module.scss";
 import Link from "next/link";
 import Button from "../UIFields/Button";
 import { useRouter } from "next/navigation";
+import { FaLongArrowAltRight } from "react-icons/fa";
 
 interface Property {
   title: string;
@@ -52,7 +53,7 @@ const PropertyList = () => {
         <div className="p-2 flex justify-center">
           <Link href="/property-list" className="w-max">
             <Button className="!bg-secondary-pinkLight px-10 h-[46px] rounded-full !text-16px text-white">
-              View All Projects <span>→</span>
+              View All Projects <FaLongArrowAltRight />
             </Button>
           </Link>
         </div>

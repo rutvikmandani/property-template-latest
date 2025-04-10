@@ -1,4 +1,5 @@
 import React from "react";
+import { FaLongArrowAltRight } from "react-icons/fa";
 
 const CallToAction = () => {
   return (
@@ -14,7 +15,7 @@ const CallToAction = () => {
       <div className="flex justify-center">
         <button className="border-2 border-secondary-pinkLight text-white px-6 py-3 rounded-full hover:bg-secondary-pinkLight hover:text-black transition duration-300 flex items-center gap-2 text-lg font-medium">
           Schedule A Call
-          <span>→</span>
+          <FaLongArrowAltRight />
         </button>
       </div>
     </div>

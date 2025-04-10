@@ -53,8 +53,11 @@ const Footer = () => {
         </div>
       </div>
       <div className="border-t border-gray-700 pt-6 mt-6 text-center justify-center text-secondary-black2 text-xs flex gap-2">
-        <p>Copyright@2025 Hetal Mehta | Powered By</p>
-        <p className="font-bold">LOGO</p>
+        <p>
+          © RE/MAX Millennium Real Estate Brokerage Independently Owned &
+          Operated || Real Estate Agent Website Designed By{" "}
+          <span className="font-bold">LOGO</span>
+        </p>
       </div>
     </footer>
   );

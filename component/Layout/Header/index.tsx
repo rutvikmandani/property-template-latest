@@ -8,8 +8,9 @@ import styles from "@/styles/Container.module.scss";
 import Image from "next/image";
 import { IoMenu } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
+import { FaLongArrowAltRight } from "react-icons/fa";
 
-const buttonStyle = `hidden lg:flex cursor-pointer text-[14px] border-3 border-secondary-pinkLight font-medium px-2 py-1 rounded-full px-6 py-3 flex gap-1`;
+const buttonStyle = `flex cursor-pointer text-[14px] border-3 border-secondary-pinkLight font-medium px-2 py-1 rounded-full px-6 py-3 flex gap-1 items-center`;
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,7 +57,9 @@ const Header = () => {
     path: string;
   }) => {
     return (
-      <button className={`flex items-center gap-1 w-full hover:text-secondary-pinkLight ${styles.navName}`}>
+      <button
+        className={`flex items-center gap-1 w-full hover:text-secondary-pinkLight ${styles.navName}`}
+      >
         {data.name}{" "}
         {!!data.subMenus.length && <MdOutlineArrowDropDown color="#000" />}
       </button>
@@ -76,7 +79,7 @@ const Header = () => {
 
             {!!a.subMenus.length && (
               <div className="h-0 group-hover:h-auto transition-all duration-300 overflow-hidden rounded-xl shadow">
-                <ul className="lg:absolute left-0 mt-2 cursor-pointe p-1 flex flex-col w-full lg:w-[200px] bg-white rounded-xl shadow-lg opacity-0 scale-y-0 origin-top transition-all duration-300 ease-out group-hover:opacity-100 group-hover:scale-y-100">
+                <ul className="lg:absolute left-0 cursor-pointe p-1 flex flex-col w-full lg:w-[200px] bg-white rounded-xl shadow-lg opacity-0 scale-y-0 origin-top transition-all duration-300 ease-out group-hover:opacity-100 group-hover:scale-y-100 border border-secondary-black3">
                   {a.subMenus.map((a) => (
                     <Link
                       href={`/property-list?listingType=${a}`}
@@ -91,6 +94,18 @@ const Header = () => {
             )}
           </li>
         ))}
+      </>
+    );
+  };
+
+  const getButtons = () => {
+    return (
+      <>
+        <div className={buttonStyle}>Login</div>
+        <div className={buttonStyle}>
+          Schedule A Call
+          <FaLongArrowAltRight />
+        </div>
       </>
     );
   };
@@ -115,37 +130,26 @@ const Header = () => {
             {getTabSection()}
           </ul>
         </div>
-
         <div className="lg:hidden rounded bg-secondary-pinkLight p-2 flex">
           <button onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <IoClose size={28} /> : <IoMenu size={28} />}
+            {isOpen ? (
+              <IoClose size={28} color="white" />
+            ) : (
+              <IoMenu size={28} color="white" />
+            )}
           </button>
         </div>
-        <div className="hidden lg:flex gap-6">
-          <div className={buttonStyle}>Login</div>
-          <div className={buttonStyle}>
-            Schedule A Call
-            <span>→</span>
-          </div>
-        </div>
+        <div className="hidden lg:flex gap-6">{getButtons()}</div>
       </header>
 
       {isOpen && (
         <ul
-          className={`lg:hidden flex flex-col space-y-4 py-4 ${
+          className={`lg:hidden flex flex-col space-y-4 pt-4 ${
             isOpen ? styles.slideDownAnimation : styles.slideUpAnimation
           }`}
         >
           {getTabSection()}
-          <div className="flex gap-6">
-            <div className=" cursor-pointer text-[14px] border-3 border-secondary-pinkLight font-medium px-2 py-1 rounded-full px-6 py-3">
-              Login
-            </div>
-            <div className=" cursor-pointer text-[14px] border-3 border-secondary-pinkLight font-medium px-2 py-1 rounded-full px-6 py-3">
-              Schedule A Call
-              <span>→</span>
-            </div>
-          </div>
+          <div className="flex gap-6">{getButtons()}</div>
         </ul>
       )}
     </nav>
