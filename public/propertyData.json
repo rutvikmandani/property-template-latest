@@ -1,0 +1,84 @@
+[
+  {
+    "title": "Scarborough Village",
+    "sqft": 0,
+    "beds": 3,
+    "baths": 2,
+    "images": [
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/E12044318/thumbnail/4ceddced-3889-4bdb-abdb-0de5f4db5e32-t.jpg",
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/E12044318/medium/4ceddced-3889-4bdb-abdb-0de5f4db5e32-m.jpg",
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/E12044318/thumbnail/03f24a6a-0fc1-4016-9d1b-2759b6caee94-t.jpg",
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/E12044318/large/e8350108-c514-47ae-988d-687879b5b7c3-l.jpg",
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/E12044318/medium/020acb66-20a1-44ea-b055-d1353177ea55-m.jpg",
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/E12044318/large/020acb66-20a1-44ea-b055-d1353177ea55-l.jpg",
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/E12044318/thumbnail/a7b0573d-8008-4894-a5d8-e146d05026f0-t.jpg",
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/E12044318/medium/2f20950d-9fb2-447d-a6c0-062ae87adfc8-m.jpg",
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/E12044318/medium/11de280b-8b5c-4810-8276-a2a58305d9ed-m.jpg",
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/E12044318/thumbnail/cc814911-b417-4c67-b428-92ee297dbb8e-t.jpg"
+    ],
+    "address": "36 Brinloor Boulevard, Toronto, ON M1M 1L5",
+    "price": "849,900",
+    "listingKey": "E12044318",
+    "transactionType": "For Sale",
+    "isFavorite": false,
+    "createdAt": "2025-03-27T05:15:03.732000Z"
+  },
+  {
+    "title": "Willowdale East",
+    "sqft": 0,
+    "beds": 0,
+    "baths": 0,
+    "images": [
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/C12044317/thumbnail/86901914-ca50-44fe-998b-00d45a6ca0c6-t.jpg",
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/C12044317/medium/86901914-ca50-44fe-998b-00d45a6ca0c6-m.jpg",
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/C12044317/large/86901914-ca50-44fe-998b-00d45a6ca0c6-l.jpg"
+    ],
+    "address": "#Parking P5/25 - 20 olive Avenue, Toronto, ON M2N 7G5",
+    "price": "15,000",
+    "listingKey": "C12044317",
+    "transactionType": "For Sale",
+    "isFavorite": false,
+    "createdAt": "2025-03-27T05:10:19.451000Z"
+  },
+  {
+    "title": "Bayview Village",
+    "sqft": "600-699",
+    "beds": "1+1",
+    "baths": 1,
+    "images": [
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/C12044314/thumbnail/c3f4698a-f8d1-4623-8969-4e4321fe23ec-t.jpg",
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/C12044314/medium/c3f4698a-f8d1-4623-8969-4e4321fe23ec-m.jpg",
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/C12044314/large/c3f4698a-f8d1-4623-8969-4e4321fe23ec-l.jpg",
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/C12044314/thumbnail/1887fa15-e6db-4773-bc89-4a9f3771f2f1-t.jpg",
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/C12044314/medium/1887fa15-e6db-4773-bc89-4a9f3771f2f1-m.jpg",
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/C12044314/large/1887fa15-e6db-4773-bc89-4a9f3771f2f1-l.jpg",
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/C12044314/thumbnail/a6ed15c4-912b-4b22-9247-a2d0de25c17e-t.jpg",
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/C12044314/thumbnail/2b33f4d7-3a06-4b71-a801-a594a0ac093a-t.jpg",
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/C12044314/medium/2b33f4d7-3a06-4b71-a801-a594a0ac093a-m.jpg",
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/C12044314/large/2b33f4d7-3a06-4b71-a801-a594a0ac093a-l.jpg"
+    ],
+    "address": "#619 - 6 Greenbriar Road, Toronto, ON M2K 0H6",
+    "price": "2,350",
+    "listingKey": "C12044314",
+    "transactionType": "For Lease",
+    "isFavorite": false,
+    "createdAt": "2025-03-27T05:00:18.087000Z"
+  },
+  {
+    "title": "Willowdale East",
+    "sqft": 0,
+    "beds": 0,
+    "baths": 0,
+    "images": [
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/C12044313/thumbnail/bfe9da4a-2a53-412b-a49e-0a910c6dd858-t.jpg",
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/C12044313/medium/bfe9da4a-2a53-412b-a49e-0a910c6dd858-m.jpg",
+      "https://s3.ca-central-1.amazonaws.com/mls-trreb/properties/C12044313/large/bfe9da4a-2a53-412b-a49e-0a910c6dd858-l.jpg"
+    ],
+    "address": "#parking - 22 olive Avenue, Toronto, ON M2N 7G6",
+    "price": "15,000",
+    "listingKey": "C12044313",
+    "transactionType": "For Sale",
+    "isFavorite": false,
+    "createdAt": "2025-03-27T05:00:18.064000Z"
+  }
+]
