@@ -313,7 +313,7 @@ const PropertyDetails = ({
         <div key={i} className={cardStyle}>
           {getHeader(key)}
           <div className="flex flex-wrap gap-x-4 gap-y-2">
-            {list.map((feature, i) => (
+            {list.map((feature: string, i: number) => (
               <div
                 key={i}
                 className="flex items-center gap-2 text-sm text-gray-700"

@@ -7,7 +7,7 @@ interface TextareaProps
   label?: string;
   error?: string;
   isInvalid?: boolean;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 }
 
 const TextareaField = forwardRef<HTMLTextAreaElement, TextareaProps>(
