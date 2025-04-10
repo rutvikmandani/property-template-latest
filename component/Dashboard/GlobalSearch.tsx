@@ -27,7 +27,13 @@ const GlobalSearch = () => {
     <div
       className={`h-[410px] relative top-0 left-0 overflow-hidden w-full sm:h-[500px] md:h-[calc(100vh-100px)]`}
     >
-      <video autoPlay muted loop playsInline className="w-full h-full object-cover">
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="w-full h-full object-cover"
+      >
         <source src="/videos/home.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
@@ -52,6 +58,10 @@ const GlobalSearch = () => {
                     }
                     transition={{ duration: 0.3 }}
                     className="absolute bg-secondary-pinkLight text-white px-6 py-1 rounded-full"
+                    onClick={() => {
+                      setSelectedOption("Buy");
+                      setIsOptionShow(false);
+                    }}
                   >
                     Buy
                   </motion.button>

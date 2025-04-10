@@ -10,7 +10,7 @@ interface CityType {
   count: number;
 }
 
-const FeatureNeighborhood = () => {
+const FeatureCities = () => {
   const router = useRouter();
 
   const images: string[] = [
@@ -71,26 +71,32 @@ const FeatureNeighborhood = () => {
     <div className={styles.mainContainer}>
       <div className={`${styles.innerContent} text-center py-[25px] px-8`}>
         <h1 className="text-secondary-pinkLight font-bold text-[30px] md:text-[40px]  mb-6">
-          Featured Neighbourhoods
+          Featured Cities
         </h1>
 
         <div className="flex flex-wrap justify-center rounded-xl overflow-hidden">
           {cities.map((city: CityType, index: number) => (
             <div
               key={city.name}
-              className={`relative w-[50%] lg:w-[25%] wow animate__animated animate__fadeInUp col-span-2 ${styles.cityWrapper}`}
+              className={`relative w-[50%] lg:w-[25%] relative wow animate__animated animate__fadeInUp col-span-2 ${styles.cityWrapper}`}
               data-wow-delay={`${(index + 1) * 0.2}s`}
             >
               <img src={images[index]} alt={city.name} />
               <h3
-                className={`absolute flex top-[20px] left-0 right-0  m-auto font-bold justify-center text-black  text-lg z-1 font-semibold ${styles.cityName}`}
+                className={`absolute flex top-[15px] left-0 right-0  m-auto font-bold justify-center text-black  text-lg z-1 font-semibold ${styles.cityName}`}
               >
                 {city.name}
               </h3>
               <div
-                className={`absolute z-2 flex top-0 bottom-0 left-0 right-0 items-center bg-secondary-pinkLight  m-auto font-bold justify-center flex-col gap-3 ${styles.hoverContent}`}
+                className={`absolute text-[14px] flex bottom-[4px] left-0 right-0  m-auto font-bold justify-center bg-secondary-pinkLight text-white w-max py-1 px-2 rounded-xl font-semibold ${styles.cityName}`}
+              >
+                {city.count} Properties
+              </div>
+              <div
+                className={`absolute z-2 flex top-0 bottom-0 left-0 right-0 items-center bg-secondary-pinkLight  m-auto font-bold justify-center flex-col gap-2 ${styles.hoverContent}`}
               >
                 <h3 className="text-white">{city.name}</h3>
+                <h3 className="text-white"> {city.count} Properties</h3>
                 <p className="text-white">BUY | SELL | INVEST</p>
                 <div
                   className="bg-white cursor-pointer rounded-full p-3 w-max h-max"
@@ -109,4 +115,4 @@ const FeatureNeighborhood = () => {
   );
 };
 
-export default FeatureNeighborhood;
+export default FeatureCities;

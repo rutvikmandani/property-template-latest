@@ -2,10 +2,10 @@
 import React from "react";
 import PropertyList from "./PropertyList";
 import CallToAction from "./CallToAction";
-import FeatureNeighborhood from "./FeatureNeighborhood";
 import GlobalSearch from "./GlobalSearch";
 import AboutDetails from "./AboutDetails";
 import Testimonials from "./Testimonials";
+import FeatureCities from "./FeatureCities";
 
 const Dashboard = () => {
   return (
@@ -15,7 +15,7 @@ const Dashboard = () => {
       <GlobalSearch />
       <AboutDetails />
       <PropertyList />
-      <FeatureNeighborhood />
+      <FeatureCities />
       <CallToAction />
       <Testimonials />
     </div>
