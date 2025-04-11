@@ -22,6 +22,8 @@ type GlobalContextType = {
   user: UserProfile | null;
   setUser: SetState<UserProfile | null>;
   setHasToken: SetState<string | boolean>;
+  isUserDataLoading: boolean;
+  isConfigurationLoading: boolean;
 };
 
 const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
@@ -75,6 +77,8 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
   });
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [user, setUser] = useState<UserProfile | null>(null);
+  const [isUserDataLoading, setIsUserDataLoading] = useState(false);
+  const [isConfigurationLoading, setIsConfigurationLoading] = useState(false);
   const { onMetaOpen } = useLoginModalContext();
 
   useEffect(() => {
@@ -82,6 +86,7 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
       const authToken = localStorage.getItem("token");
       setHasToken(!!authToken);
       // if (authToken) {
+      //   setIsUserDataLoading(true);
       //   globalServices
       //     .getAll("/get-profile")
       //     .then((res) => {
@@ -97,6 +102,9 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
       //       setHasToken(false);
       //       localStorage.removeItem("token");
       //       localStorage.setItem("transactionType", "");
+      //     })
+      //     .finally(() => {
+      //       setIsUserDataLoading(false);
       //     });
       // } else {
       //   setHasToken(false);
@@ -158,6 +166,10 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
     }
   }, [configurationData?.data]);
 
+  useEffect(() => {
+    // setIsConfigurationLoading(configurationData?.isLoading);
+  }, [configurationData?.isLoading]);
+
   return (
     <GlobalContext.Provider
       value={{
@@ -168,6 +180,8 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
         user,
         setUser,
         setHasToken,
+        isUserDataLoading,
+        isConfigurationLoading,
       }}
     >
       {children}

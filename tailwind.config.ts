@@ -17,6 +17,9 @@ export default {
       fontFamily: {
         sans: ["League Spartan", "sans-serif"],
       },
+      boxShadow: {
+        custom: "3px 3px 12px #00000029",
+      },
       colors: {
         primary: {
           DEFAULT: "#000000",

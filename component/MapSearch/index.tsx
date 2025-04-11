@@ -13,7 +13,7 @@ const MapSearch = () => {
       <div
         className={`${styles.innerContent} w-full grid grid-cols-1 md:grid-cols-2 gap-4 text-[#212529]`}
       >
-        <div className={"bg-white h-full p-4 shadow rounded-xl"}>
+        <div className={"bg-white h-full p-4 shadow-custom rounded-xl"}>
           <MapContainer />
         </div>
         <div className={`flex flex-col gap-4`}>
@@ -28,7 +28,7 @@ const MapSearch = () => {
             ].map((a, index) => (
               <div
                 key={index}
-                className={`shadow-md rounded-t-[20px] bg-white overflow-hidden w-full ${styles.cardWrapper}`}
+                className={`rounded-t-[20px] bg-white overflow-hidden w-full shadow-custom`}
                 onClick={() => router.push(`/property-detail/${a.listingKey}`)}
               >
                 <PropertyCard {...a} index={index} />

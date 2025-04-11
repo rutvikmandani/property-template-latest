@@ -5,7 +5,7 @@ import ContactFields from "../ContactFields";
 
 const AskAboutProperty = () => {
   return (
-    <div className="flex flex-col bg-white gap-4 sticky top-[110px] p-4 shadow rounded-xl">
+    <div className="flex flex-col bg-white gap-4 sticky top-[110px] p-4 shadow-custom rounded-xl">
       <h3 className="text-[22px] text-secondary-pinkLight font-bold flex text-center justify-center">
         Ask about this property
       </h3>

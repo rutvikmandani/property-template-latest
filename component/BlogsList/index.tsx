@@ -1,8 +1,21 @@
+"use client";
 import { BlogData } from "@/src/types/blog";
 import moment from "moment";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "@/styles/Container.module.scss";
+import { useQuery } from "@tanstack/react-query";
+import { globalServices } from "@/services/global.services";
+import Skeleton from "../Skeleton";
+
+async function fetchBlogs(page: number) {
+  return globalServices
+    .getAll(`/feeds?page=${page}&limit=24`)
+    .then((res) => res.data);
+}
+
+const wrapperStyle = `w-full bg-white rounded-t-[20px] overflow-hidden shadow-custom text-[#212529]`;
+const textWrapper = `px-2 py-3 flex flex-col gap-2 items-center`;
 
 const blogs = [
   {
@@ -35,36 +48,66 @@ const blogs = [
 ];
 
 const BlogsList = () => {
+  // const [page, setPage] = useState(1);
+  // const [blogsData, setBlogsData] = useState<BlogData[]>([]);
+  // // const [hasMorePage] = useState(false);
+
+  // const blogs = useQuery({
+  //   queryKey: [`blog-data-${page}`],
+  //   queryFn: () => fetchBlogs(page),
+  //   staleTime: 1000 * 60 * 5,
+  // });
+
+  // useEffect(() => {
+  //   if (blogs?.data?.data) {
+  //     setBlogsData(blogs?.data?.data);
+  //   }
+  // }, [blogs?.data?.data]);
+
+  const getBlogSkeleton = (index: number) => {
+    return (
+      <div className={wrapperStyle} key={index}>
+        <Skeleton className="h-[200px] !rounded-t-[20px] !rounded-b-[0px] w-full  " />
+        <div className={textWrapper}>
+          <Skeleton className="h-[18px] w-[100px] " />
+          <Skeleton className="h-[16px] w-[100px] " />
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className={`${styles.mainContainer} p-8`}>
       <div
-        className={`${styles.innerContent} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-4`}
+        // className={`${styles.innerContent} grid grid-cols-1 md:gap-4 ${(blogs?.isLoading || !!blogsData?.length) && "md:grid-cols-2 lg:grid-cols-3"}`}
+        className={`${styles.innerContent} grid grid-cols-1 md:gap-4  md:grid-cols-2 lg:grid-cols-3`}
       >
-        {blogs.map((blog: BlogData) => (
-          <Link className="w-full" href={`/blog/${blog.slug}`}>
-            <div
-              className={
-                "w-full bg-white rounded-t-[20px] overflow-hidden text-[#212529]"
-              }
-            >
-              <img
-                src={blog.thumbnail}
-                alt={`Image ${blog.slug}`}
-                className={"styles.image"}
-              />
-              <div className={`px-2 py-3 flex flex-col gap-2 items-center`}>
-                <p className={"text-lg font-semibold truncate"}>
-                  {blog.title.length > 50
-                    ? `${blog.title.slice(0, 47)}...`
-                    : blog.title}
-                </p>
-                <p className={"styles.date"}>
-                  {moment(blog.created_at).format("MMMM DD, YYYY")}
-                </p>
+        {/* {blogsData.length === 0 &&
+          (blogs?.isLoading ? (
+            Array.from({ length: 4 }).map((_, index) => getBlogSkeleton(index))
+          ) : (
+            <strong className="block text-[24px] text-center my-10">
+              Oops! sorry No exact matches Found
+            </strong>
+          ))} */}
+        {!!blogs.length &&
+          blogs.map((blog: BlogData) => (
+            <Link className="w-full" href={`/blog/${blog.slug}`}>
+              <div className={wrapperStyle}>
+                <img src={blog.thumbnail} alt={`Image ${blog.slug}`} />
+                <div className={textWrapper}>
+                  <p className={"text-lg font-semibold truncate"}>
+                    {blog.title.length > 50
+                      ? `${blog.title.slice(0, 47)}...`
+                      : blog.title}
+                  </p>
+                  <p className={"styles.date"}>
+                    {moment(blog.created_at).format("MMMM DD, YYYY")}
+                  </p>
+                </div>
               </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          ))}
       </div>
     </div>
   );

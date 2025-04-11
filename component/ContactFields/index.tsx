@@ -4,6 +4,9 @@ import InputField from "../UIFields/InputField";
 import TextareaField from "../UIFields/TextareaField";
 import Button from "../UIFields/Button";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { globalServices } from "@/services/global.services";
+import Swal from "sweetalert2";
+import { useGlobalContext } from "@/context/GlobalContext";
 
 interface FormData {
   name: string;
@@ -20,6 +23,8 @@ interface FormErrors {
 }
 
 const ContactFields = () => {
+  const { isConfigurationLoading } = useGlobalContext();
+
   const [formData, setFormData] = useState<FormData>({
     name: "",
     phone: "",
@@ -73,7 +78,27 @@ const ContactFields = () => {
     if (!validateForm()) {
       return;
     }
+    // setIsSubmitting(true);
+    // globalServices
+    //   .post("/contact-enquiries", formData)
+    //   .then(() => {
+    //     setFormData({
+    //       name: "",
+    //       phone: "",
+    //       email: "",
+    //       message: "",
+    //     });
+    //     Swal.fire({
+    //       title: "Inquiry Submitted Successfully",
+    //       icon: "success",
+    //       timer: 1500,
+    //     });
+    //   })
+    //   .finally(() => {
+    //     setIsSubmitting(false);
+    //   });
   };
+
   return (
     <form
       id="inquiry-form"
@@ -115,8 +140,7 @@ const ContactFields = () => {
       <Button
         type="submit"
         className="py-3 text-white w-full flex align-center"
-        isLoading={isSubmitting}
-        disabled={isSubmitting}
+        isLoading={isSubmitting || isConfigurationLoading}
       >
         {isSubmitting ? (
           "Sending..."

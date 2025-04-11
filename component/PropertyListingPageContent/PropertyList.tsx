@@ -21,7 +21,7 @@ const PropertyList = () => {
         ].map((a, index) => (
           <div
             key={index}
-            className={`shadow-md rounded-t-[20px] overflow-hidden w-full ${styles.cardWrapper}`}
+            className={`rounded-t-[20px] overflow-hidden w-full shadow-custom`}
             onClick={() => router.push(`/property-detail/${a.listingKey}`)}
           >
             <PropertyCard {...a} index={index} />

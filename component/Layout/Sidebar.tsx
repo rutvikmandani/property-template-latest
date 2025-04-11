@@ -23,8 +23,10 @@ export default function Sidebar() {
   const { setHasToken, setUser } = useGlobalContext();
   const {setIsLogged} = useLoginModalContext()
 
+
   const handleLogout = () => {
-    setIsLogged(false)
+    setIsLogged(false);
+
     // Swal.fire({
     //   title: "Ready to leave?",
     //   text: "You will be logged out of your account.",
@@ -37,23 +39,24 @@ export default function Sidebar() {
     //   reverseButtons: true,
     // }).then((result) => {
     //   if (result.isConfirmed) {
-    //     // globalServices.post("/logout")
-    //     // .then(() => {
-    //     //   setUser(null);
-    //     //   setHasToken(false);
-    //     //   logout();
-    //     //   router.push("/");
-    //     //   Swal.fire({
-    //     //     title: "Logout!",
-    //     //     text: "Logout Successfully",
-    //     //     icon: "success",
-    //     //     showConfirmButton: false,
-    //     //     timer: 1500
-    //     //   });
-    //     // })
-    //     // .catch((err) => {
-    //     //   console.log("login error", err)
-    //     // });
+    //     globalServices
+    //       .post("/logout")
+    //       .then(() => {
+    //         setUser(null);
+    //         setHasToken(false);
+    //         logout();
+    //         router.push("/");
+    //         Swal.fire({
+    //           title: "Logout!",
+    //           text: "Logout Successfully",
+    //           icon: "success",
+    //           showConfirmButton: false,
+    //           timer: 1500,
+    //         });
+    //       })
+    //       .catch((err) => {
+    //         console.log("login error", err);
+    //       });
     //   }
     // });
   };

@@ -141,11 +141,11 @@ export default function FavoriteProperty() {
     router.push(`/property-detail/${listingKey}`);
   };
 
-  const getData = (data: Property, index: number) => {
+  const getData = (data: Property, index: number) => {  
     return (
       <div
         key={index}
-        className={`w-[100%] max-w-[440px] m-2 relative bg-white rounded-t-[20px] overflow-hidden text-[#212529] ${styles.cardWrapper}`}
+        className={`w-[100%] max-w-[440px] m-2 relative bg-white rounded-t-[20px] overflow-hidden text-[#212529] shadow-custom`}
         onClick={() => router.push(`/property-detail/${data.listingKey}`)}
       >
         <PropertyCard {...data} index={index} displayDeleteIcon />

@@ -1,12 +1,13 @@
 "use client";
 
 import { globalServices } from "@/services/global.services";
-import { BlogData, SingleBlogData } from "@/src/types/blog";
+// import { SingleBlogData } from "@/src/types/blog";
 import { useQuery } from "@tanstack/react-query";
 import moment from "moment";
 import { FullPageLoader } from "../Loader";
 import styles from "@/styles/Container.module.scss";
 import Link from "next/link";
+// import Skeleton from "../Skeleton";
 
 async function fetchBlog(blogId: string) {
   const res = await globalServices.getAll(`/feeds/${blogId}`);
@@ -29,51 +30,68 @@ const blogData = {
 };
 
 const Blog = ({ blogId }: { blogId: string }) => {
-  //   const blogs = useQuery({
-  //     queryKey: ["excludedQueryKey", blogId],
-  //     queryFn: () => fetchBlog(blogId),
-  //     staleTime: 1000 * 60 * 5,
-  //   });
-  //   const blogData: SingleBlogData = blogs?.data?.data?.data;
+  // const blogs = useQuery({
+  //   queryKey: ["excludedQueryKey", blogId],
+  //   queryFn: () => fetchBlog(blogId),
+  //   staleTime: 1000 * 60 * 5,
+  // });
+  // const blogData: SingleBlogData = blogs?.data?.data?.data;
 
-  return blogData?.id ? (
+  return (
     <div className={`${styles.mainContainer} p-8`}>
       <div
         className={`${styles.innerContent} flex text-[#212529] flex-col gap-6`}
       >
-        <img
-          className="rounded-xl w-full max-h-[75vh] object-cover"
-          src={blogData?.image ?? "/images/blog/blog-grid-1.jpg"}
-        />
-        <div className="flex justify-center">
-          <div className="w-full">
-            <div className="text-[40px] font-semibold leading-[47px] mb-[12px]">
-              {blogData?.title}
+        {/* {blogs.isLoading && (
+          <>
+            <Skeleton className="w-full h-[200px]" />
+            <div className="flex justify-center">
+              <div className="w-full">
+                <Skeleton className="w-[150px] h-[40px] mb-3" />
+                <Skeleton className="w-[150px] h-[20px] mb-6" />
+                <Skeleton className="w-[full] h-[48px] mb-6" />
+              </div>
             </div>
-            <div className="text-[#1f4b43] text-[14px] mb-6">
-              {moment(blogData.posted_at).format("MMMM DD, YYYY")}
+          </>
+        )} */}
+
+        {blogData?.id ? (
+          <>
+            <img
+              className="rounded-xl w-full max-h-[75vh] object-cover"
+              src={blogData?.image ?? "/images/blog/blog-grid-1.jpg"}
+            />
+            <div className="flex justify-center">
+              <div className="w-full">
+                <div className="text-[40px] font-semibold leading-[47px] mb-[12px]">
+                  {blogData?.title}
+                </div>
+                <div className="text-[#1f4b43] text-[14px] mb-6">
+                  {moment(blogData.posted_at).format("MMMM DD, YYYY")}
+                </div>
+                {blogData?.content && (
+                  <div
+                    className="mb-6"
+                    dangerouslySetInnerHTML={{ __html: blogData.content }}
+                  />
+                )}
+              </div>
             </div>
-            {blogData?.content && (
-              <div
-                className="mb-6"
-                dangerouslySetInnerHTML={{ __html: blogData.content }}
-              />
-            )}
+          </>
+        ) : (
+          <div className="flex flex-col gap-6 items-center p-8">
+            <h1 className="text-6xl font-bold block text-center">
+              No Blog Found
+            </h1>
+            <Link
+              href="/"
+              className="px-6 py-2 text-black text-white hover:text-black bg-secondary-pinkLight rounded-lg transition"
+            >
+              Go Back Blogs
+            </Link>
           </div>
-        </div>
+        )}
       </div>
-    </div>
-  ) : blogData?.isLoading ? (
-    <FullPageLoader />
-  ) : (
-    <div className="flex flex-col gap-6 items-center p-8">
-      <h1 className="text-6xl font-bold block text-center">No Blog Found</h1>
-      <Link
-        href="/"
-        className="px-6 py-2 text-black text-white hover:text-black bg-secondary-pinkLight rounded-lg transition"
-      >
-        Go Back Blogs
-      </Link>
     </div>
   );
 };

@@ -16,7 +16,7 @@ const ActionFields = () => {
   };
 
   return (
-    <div className="mb-4 grid grid-cols-1 md:grid-cols-2 bg-white p-4 rounded-xl shadow gap-4">
+    <div className="mb-4 grid grid-cols-1 md:grid-cols-2 bg-white p-4 rounded-xl shadow-custom gap-4">
       <div className="grid grid-cols-[67%_30%] gap-4">
         <InputField
           value={searchValue?.city}

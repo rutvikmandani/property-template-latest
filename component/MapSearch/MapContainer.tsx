@@ -101,12 +101,12 @@ const MapContainer: React.FC = () => {
         <Button
           onPress={startPolygonDrawing}
           disabled={drawingActive}
-          className="bg-white text-primary shadow"
+          className="bg-white text-primary shadow-custom"
         >
           Draw Polygon
         </Button>
 
-        <Button onPress={clearPolygon} className="bg-white shadow text-primary">
+        <Button onPress={clearPolygon} className="bg-white shadow-custom text-primary">
           Clear Polygon
         </Button>
       </div>

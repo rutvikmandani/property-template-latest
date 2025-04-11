@@ -38,7 +38,7 @@ const Testimonials = () => {
         {data.map((a, index) => (
           <div
             key={index}
-            className={`bg-white p-6 rounded-2xl shadow-md text-center max-w-[440px] ${styles.cardWrapper}`}
+            className={`bg-white p-6 rounded-2xl text-center max-w-[440px] shadow-custom`}
           >
             <img
               src={a.img}

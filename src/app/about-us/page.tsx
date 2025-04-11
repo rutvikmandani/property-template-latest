@@ -1,17 +1,20 @@
 "use client";
-import { FullPageLoader } from "@/component/Loader";
-// import { globalServices } from "@/services/global.services";
+import Skeleton from "@/component/Skeleton";
+import { globalServices } from "@/services/global.services";
 import styles from "@/styles/Container.module.scss";
-// import { useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
+const wrapperClass = "flex flex-col text-primary items-center gap-2";
 const descriptionText = "max-w-2xl text-lg";
 const titleText = "text-xl font-semibold mb-2 text-secondary-pinkLight";
-const cardDesign = "shadow rounded-xl bg-white p-4";
+const cardDesign = "shadow-custom rounded-xl bg-white p-4";
+const topSection = `grid md:grid-cols-2 items-center grid md:grid-cols-2 gap-10 ${cardDesign}`;
+const bottomSection = `grid md:grid-cols-2 gap-10`;
 
-// async function fetchAbout() {
-  // const res = await globalServices.getAll(`/about`);
-  // return res;
-// }
+async function fetchAbout() {
+  const res = await globalServices.getAll(`/about`);
+  return res;
+}
 
 export default function AboutUs() {
   // const { data, isLoading } = useQuery({
@@ -19,6 +22,8 @@ export default function AboutUs() {
   //   queryFn: fetchAbout,
   //   staleTime: 1000 * 60 * 5,
   // });
+
+  // const aboutData = data?.data?.data;
 
   const { data, isLoading } = {
     data: {
@@ -47,10 +52,39 @@ export default function AboutUs() {
     <div className={`${styles.mainContainer} p-8`}>
       <div className={`${styles.innerContent} px-6 py-10 flex flex-col gap-6`}>
         {isLoading ? (
-          <FullPageLoader />
+          <>
+            <div className={wrapperClass}>
+              <Skeleton className="h-[45px] md:h-[60px] w-[250px] " />
+
+              <Skeleton className="h-[27px] w-[250px] " />
+            </div>
+
+            {/* Image & Text Section */}
+            <div className={topSection}>
+              {/* Image Skeleton */}
+              <Skeleton className="h-[200px] w-full " />
+
+              {/* Title + Description Skeleton */}
+              <div className="space-y-4">
+                <Skeleton className="h-[45px] md:h-[60px] w-[200px] " />
+
+                <Skeleton className="h-[27px] w-[250px] " />
+              </div>
+            </div>
+
+            {/* Vision & Mission */}
+            <div className={bottomSection}>
+              <div className={cardDesign}>
+                <Skeleton className="h-[200px] w-full " />
+              </div>
+              <div className={cardDesign}>
+                <Skeleton className="h-[200px] w-full " />
+              </div>
+            </div>
+          </>
         ) : aboutData ? (
           <>
-            <div className="flex flex-col text-primary items-center">
+            <div className={wrapperClass}>
               {aboutData?.banner_title && (
                 <h1 className="text-secondary-pinkLight font-bold text-[30px] md:text-[40px]">
                   {aboutData.banner_title}
@@ -61,14 +95,12 @@ export default function AboutUs() {
               )}
             </div>
 
-            <div
-              className={`grid md:grid-cols-2 items-center grid md:grid-cols-2 gap-10 ${cardDesign}`}
-            >
+            <div className={topSection}>
               {aboutData?.about_image && (
                 <img
                   src={aboutData.about_image}
                   alt="About Us"
-                  className="w-full rounded-xl shadow-md object-cover"
+                  className="w-full rounded-xl shadow-custom object-cover"
                 />
               )}
 
@@ -76,22 +108,20 @@ export default function AboutUs() {
                 {aboutData?.about_title && (
                   <h2 className={titleText}>{aboutData.about_title}</h2>
                 )}
-                {aboutData?.about_description && (
-                  <p className={descriptionText}>
-                    {aboutData.about_description}
-                  </p>
-                )}
+                <p className={descriptionText}>
+                  {aboutData.about_description ?? "-"}
+                </p>
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-10">
+            <div className={bottomSection}>
               <div className={cardDesign}>
                 <h2 className={titleText}>Vision</h2>
-                <p className={descriptionText}>{aboutData?.vision}</p>
+                <p className={descriptionText}>{aboutData?.vision ?? "-"}</p>
               </div>
               <div className={cardDesign}>
                 <h2 className={titleText}>Mission</h2>
-                <p className={descriptionText}>{aboutData?.mission}</p>
+                <p className={descriptionText}>{aboutData?.mission ?? "-"}</p>
               </div>
             </div>
           </>

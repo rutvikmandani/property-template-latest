@@ -1,10 +1,19 @@
+"use client";
 import ContactFields from "@/component/ContactFields";
 import React from "react";
 import { FiPhone } from "react-icons/fi";
-import { TbMessageUser } from "react-icons/tb";
+import { MdOutlineAttachEmail } from "react-icons/md";
 import { SlLocationPin } from "react-icons/sl";
+import { useGlobalContext } from "@/context/GlobalContext";
+import Skeleton from "@/component/Skeleton";
+
+const lineStyle = "flex items-center gap-2 text-[18px] leading-[28px]";
 
 const ContactUs = () => {
+  const { configuration, isConfigurationLoading } = useGlobalContext();
+
+  const { phone, email, address, agent_name } = configuration?.website || {};
+
   return (
     <div className="px-6 py-10 flex flex-col gap-6">
       <div className="flex flex-col text-primary items-center">
@@ -17,21 +26,57 @@ const ContactUs = () => {
       </div>
 
       <div className="flex items-center justify-center ">
-        <div className="w-full max-w-6xl bg-white rounded-2xl shadow overflow-hidden grid md:grid-cols-2">
+        <div className="w-full max-w-6xl bg-white rounded-2xl shadow-custom overflow-hidden grid md:grid-cols-2">
           <div className="bg-secondary-pinkLight text-white py-10 px-6 flex gap-1 flex-col">
-            <h2 className="text-3xl font-medium pb-2">{"Ashutosh Walia"}</h2>
-            <div className="flex gap-2 items-center">
-              <SlLocationPin size={18} />
-              <p className="text-[18px]">{"Mississauga, Ontario, L4T 0A7"}</p>
-            </div>
-            <div className="flex gap-2 items-center">
-              <FiPhone size={18} />
-              <p className="text-[18px]">{"ashwaliarealty@gmail.com"}</p>
-            </div>
-            <div className="flex gap-2 items-center">
-              <TbMessageUser size={18} />
-              <p className="text-[18px]">{"+16478084539"}</p>
-            </div>
+            {isConfigurationLoading ? (
+              <Skeleton className="h-[44px] w-[150px] mb-2" />
+            ) : (
+              <h2 className="text-3xl font-medium pb-2">
+                {/* {agent_name} */}
+                Ashutosh Walia
+              </h2>
+            )}
+
+            {isConfigurationLoading ? (
+              <li className={lineStyle}>
+                <FiPhone size={18} />
+                <Skeleton className="h-[28px] w-[150px] " />
+              </li>
+            ) : (
+              <a className={lineStyle} href={`tel:+16478084539`}>
+              {/* <a className={lineStyle} href={`tel:${phone}`}> */}
+                <FiPhone size={18} />
+                {/* {phone} */}
+                +16478084539
+              </a>
+            )}
+
+            {isConfigurationLoading ? (
+              <li className={lineStyle}>
+                <MdOutlineAttachEmail size={18} />
+                <Skeleton className="h-[28px] w-[150px] " />
+              </li>
+            ) : (
+              <a className={lineStyle} href={`mailto:ashwaliarealty@gmail.com`}>
+              {/* <a className={lineStyle} href={`mailto:${email}`}> */}
+                <MdOutlineAttachEmail size={18} />
+                {/* {email} */}
+                ashwaliarealty@gmail.com
+              </a>
+            )}
+
+            {isConfigurationLoading ? (
+              <li className={lineStyle}>
+                <SlLocationPin size={18} />
+                <Skeleton className="h-[28px] w-[150px] " />
+              </li>
+            ) : (
+              <div className={lineStyle}>
+                <SlLocationPin size={18} />
+                {/* <span>{address}</span> */}
+                {"Mississauga, Ontario, L4T 0A7"}
+              </div>
+            )}
           </div>
 
           <div className="py-10 px-6">

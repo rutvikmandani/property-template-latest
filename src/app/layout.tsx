@@ -41,7 +41,6 @@ export default function RootLayout({
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
           <QueryProvider>
-            <QueryLoader />
             <LoginModalProvider>
               <GlobalProvider>
                 <Suspense fallback={<FullPageLoader />}>

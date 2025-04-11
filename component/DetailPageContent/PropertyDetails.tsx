@@ -10,7 +10,7 @@ import { IoPricetagsOutline } from "react-icons/io5";
 import { TbArrowAutofitWidth } from "react-icons/tb";
 import { LiaKeySolid } from "react-icons/lia";
 
-const cardStyle = `bg-white shadow rounded-xl p-6`;
+const cardStyle = `bg-white shadow-custom rounded-xl p-6`;
 
 const PropertyDetails = ({
   CityRegion,
@@ -259,7 +259,7 @@ const PropertyDetails = ({
         </div>
       </div>
 
-      <div className="bg-secondary-black3 p-4 shadow rounded-xl">
+      <div className="bg-secondary-black3 p-4 shadow-custom rounded-xl">
         <h3 className="text-lg text-[16px] font-semibold">Description</h3>
         <p className="text-secondary-blackLight text-[14px] mt-2 text-sm">
           Conveniently located in the heart of North York, this one bedroom

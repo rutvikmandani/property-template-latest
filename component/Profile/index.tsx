@@ -9,7 +9,7 @@ import { UserProfile } from "@/src/types/user";
 import { useGlobalContext } from "@/context/GlobalContext";
 import { FullPageLoader } from "../Loader";
 
-const boxStyle = `bg-white shadow rounded-xl p-6`;
+const boxStyle = `bg-white shadow-custom rounded-xl p-6`;
 
 const Profile = () => {
   const { setUser } = useGlobalContext();

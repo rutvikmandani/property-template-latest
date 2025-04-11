@@ -14,13 +14,13 @@ function AdvanceOptions({
   const [sortType, setSortType] = useState("low-high");
 
   return (
-    <div className="flex justify-between flex-wrap items-center gap-4 bg-white mb-4 p-4 shadow rounded-xl">
+    <div className="flex justify-between flex-wrap items-center gap-4 bg-white mb-4 p-4 shadow-custom rounded-xl">
       <div className="flex gap-2  ">
         {viewList.map((a) => (
           <button
             key={a}
             onClick={() => setSelectedView(a)}
-            className={`shadow rounded-xl p-3 ${a === selectedView && "bg-secondary-pinkLight"}`}
+            className={`shadow-custom rounded-xl p-3 ${a === selectedView && "bg-secondary-pinkLight"}`}
           >
             {a === "Map" ? <FaMapMarkedAlt /> : <IoGridOutline />}
           </button>
