@@ -89,7 +89,7 @@ const MapContainer: React.FC = () => {
   if (!isLoaded) return <div>Loading...</div>;
 
   return (
-    <div className="relative">
+    <div className="relative h-[400px]  md:h-full">
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}

@@ -1,9 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import styles from "@/styles/Container.module.scss";
-import properties from "@/public/propertyData.json";
 import { useRouter, useSearchParams } from "next/navigation";
-import { PropertyCard } from "../PropertyCard";
 import AdvanceOptions from "./AdvanceOptions";
 import ActionFields from "../MapSearch/ActionFields";
 import PropertyList from "./PropertyList";

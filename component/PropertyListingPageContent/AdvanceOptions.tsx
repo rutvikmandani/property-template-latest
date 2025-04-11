@@ -14,7 +14,7 @@ function AdvanceOptions({
   const [sortType, setSortType] = useState("low-high");
 
   return (
-    <div className="flex justify-between items-center gap-4 bg-white mb-4 p-4 shadow rounded-xl">
+    <div className="flex justify-between flex-wrap items-center gap-4 bg-white mb-4 p-4 shadow rounded-xl">
       <div className="flex gap-2  ">
         {viewList.map((a) => (
           <button

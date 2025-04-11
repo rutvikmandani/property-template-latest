@@ -244,8 +244,6 @@ const PropertyDetails = ({
     );
   };
 
-  console.log('encodeURIComponent(UnparsedAddress)', encodeURIComponent(UnparsedAddress))
-
   return (
     <div className="bg-neutral rounded flex flex-col gap-4">
       <div className="flex flex-col gap-4 justify-between items-center py-4 sm:flex-row">
