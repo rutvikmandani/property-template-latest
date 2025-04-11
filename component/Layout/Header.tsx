@@ -14,6 +14,7 @@ import AfterAfterSignPopup from "@/component/AfterSignPopup";
 import { useGlobalContext } from "@/context/GlobalContext";
 import { useLoginModalContext } from "@/context/LoginModalContext";
 import Skeleton from "../Skeleton";
+import { alertsList, listMenuTabs } from "@/lib/Constant";
 
 const buttonStyle = `flex cursor-pointer text-[14px] border-3 border-secondary-pinkLight font-medium px-2 py-1 rounded-full px-6 py-3 flex gap-1 items-center`;
 
@@ -28,39 +29,31 @@ const Header = () => {
   } = useGlobalContext();
   const { onOpen, setIsForgot, setIsLogin, logged } = useLoginModalContext();
 
-  const listMenuTabs = [
-    "Residential",
-    "Condo",
-    "Commercial",
-    "Open House",
-    "Pre Construction",
-  ];
-
   const navTabs = [
     {
-      name: "Buy",
-      subMenus: listMenuTabs,
-      path: "",
-    },
-    {
-      name: "Rent",
-      subMenus: listMenuTabs,
-      path: "",
-    },
-    {
-      name: "Blogs",
+      name: "Home",
       subMenus: [],
-      path: "/blogs",
+      path: "/",
+    },
+    {
+      name: "Listings",
+      subMenus: listMenuTabs,
+      path: "",
     },
     {
       name: "Useful Tools",
-      subMenus: [],
+      subMenus: alertsList,
       path: "/blogs",
     },
     {
       name: "About Us",
       subMenus: [],
       path: "/about-us",
+    },
+    {
+      name: "Blogs",
+      subMenus: [],
+      path: "/blogs",
     },
     {
       name: "Contact Us",

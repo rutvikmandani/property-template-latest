@@ -6,6 +6,8 @@ import { MdOutlineAttachEmail } from "react-icons/md";
 import { SlLocationPin } from "react-icons/sl";
 import { useGlobalContext } from "@/context/GlobalContext";
 import Skeleton from "@/component/Skeleton";
+import Image from "next/image";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 
 const lineStyle = "flex items-center gap-2 text-[18px] leading-[28px]";
 
@@ -27,9 +29,16 @@ const ContactUs = () => {
 
       <div className="flex items-center justify-center ">
         <div className="w-full max-w-6xl bg-white rounded-2xl shadow-custom overflow-hidden grid md:grid-cols-2">
-          <div className="bg-secondary-pinkLight text-white py-10 px-6 flex gap-1 flex-col">
+          <div className="bg-secondary-pinkLight text-white py-10 px-6 flex gap-1 flex-col items-center justify-center">
+            <Image
+              src="/images/realtor.webp"
+              alt="Profile"
+              height={130}
+              width={130}
+              className="w-[130px] h-[130px] bg-white object-contain rounded-xl border border-secondary-black3"
+            />
             {isConfigurationLoading ? (
-              <Skeleton className="h-[44px] w-[150px] mb-2" />
+              <Skeleton className="h-[44px] w-[150px] mb-3" />
             ) : (
               <h2 className="text-3xl font-medium pb-2">
                 {/* {agent_name} */}
@@ -44,7 +53,7 @@ const ContactUs = () => {
               </li>
             ) : (
               <a className={lineStyle} href={`tel:+16478084539`}>
-              {/* <a className={lineStyle} href={`tel:${phone}`}> */}
+                {/* <a className={lineStyle} href={`tel:${phone}`}> */}
                 <FiPhone size={18} />
                 {/* {phone} */}
                 +16478084539
@@ -58,7 +67,7 @@ const ContactUs = () => {
               </li>
             ) : (
               <a className={lineStyle} href={`mailto:ashwaliarealty@gmail.com`}>
-              {/* <a className={lineStyle} href={`mailto:${email}`}> */}
+                {/* <a className={lineStyle} href={`mailto:${email}`}> */}
                 <MdOutlineAttachEmail size={18} />
                 {/* {email} */}
                 ashwaliarealty@gmail.com
@@ -77,6 +86,16 @@ const ContactUs = () => {
                 {"Mississauga, Ontario, L4T 0A7"}
               </div>
             )}
+            <div className="flex gap-2 mt-3">
+              <FaFacebook
+                size={18}
+                className="cursor-pointer"
+              />
+              <FaInstagram
+                size={18}
+                className="cursor-pointer"
+              />
+            </div>
           </div>
 
           <div className="py-10 px-6">

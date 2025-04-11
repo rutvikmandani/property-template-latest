@@ -40,9 +40,9 @@ const PropertyList = () => {
   return (
     <div className={styles.mainContainer}>
       <div>
-        <div className={`${styles.innerContent} text-center py-[25px] px-8`}>
+        <div className={`${styles.innerContent} text-center py-6 px-8`}>
           <h1 className="text-secondary-pinkLight font-bold text-[30px] md:text-[40px]  mb-6">
-            Features Projects
+            Today's Listing
           </h1>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 justify-items-center lg:grid-cols-4">
             {properties.map((property: Property, index: number) =>
@@ -50,7 +50,7 @@ const PropertyList = () => {
             )}
           </div>
         </div>
-        <div className="p-2 flex justify-center">
+        <div className="flex justify-center">
           <Link href="/property-list" className="w-max">
             <Button className="!bg-secondary-pinkLight px-10 h-[46px] rounded-full !text-16px text-white">
               View All Projects <FaLongArrowAltRight />

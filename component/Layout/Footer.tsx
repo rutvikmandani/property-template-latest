@@ -12,6 +12,7 @@ import "swiper/css/pagination";
 import Image from "next/image";
 import { useGlobalContext } from "@/context/GlobalContext";
 import Skeleton from "../Skeleton";
+import { alertsList } from "@/lib/Constant";
 
 const lineStyle = "flex items-center gap-2";
 
@@ -56,6 +57,20 @@ const Footer = () => {
           )}
         </div>
 
+        <div className="flex flex-col gap-1">
+          <h3 className="text-xl underline underline-offset-4 font-semibold flex justify-start mb-2">
+            Quick Links
+          </h3>
+          {alertsList.map((item, index) => (
+            <div
+              key={index}
+              className={`${lineStyle} underline-offset-4 hover:underline cursor-pointer`}
+            >
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+
         <div className="text-center md:text-left space-y-4">
           {isConfigurationLoading ? (
             <Skeleton className="h-[28px] w-[200px] " />
@@ -67,7 +82,7 @@ const Footer = () => {
             </h3>
             // )
           )}
-          <ul className="space-y-2">
+          <ul className="space-y-1">
             {isConfigurationLoading ? (
               <li className={lineStyle}>
                 <FaPhoneAlt />

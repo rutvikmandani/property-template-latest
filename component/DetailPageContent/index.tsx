@@ -12,9 +12,9 @@ const DetailPageContent = () => {
 
   return (
     <div
-      className={`${styles.innerContent} bg-secondary-bg flex gap-4 text-primary flex-col md:flex-row`}
+      className={`${styles.innerContent} bg-secondary-bg flex gap-4 text-primary flex-col lg:flex-row`}
     >
-      <div className="w-[100%] md:w-[64%]">
+      <div className="w-[100%] lg:w-[64%]">
         <PropertyImages
           imgList={imgList}
           TransactionType={propertyDetail?.TransactionType}
@@ -22,7 +22,7 @@ const DetailPageContent = () => {
         <PropertyDetails {...propertyDetail} soldDetail={soldDetail} />
       </div>
 
-      <div className="w-[100%] md:w-[36%]">
+      <div className="w-[100%] lg:w-[36%]">
         <AskAboutProperty />
       </div>
     </div>

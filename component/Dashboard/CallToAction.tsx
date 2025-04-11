@@ -4,11 +4,11 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 
 const CallToAction = () => {
   return (
-    <div className="bg-black text-white text-center py-[25px] px-8">
-      <h2 className="text-4xl md:text-5xl max-w-2xl mx-auto font-black text-secondary-pinkLight leading-tight mb-6">
+    <div className="bg-black text-white text-center py-8 px-8">
+      <h2 className="text-4xl md:text-5xl max-w-2xl mx-auto font-black text-secondary-pinkLight leading-tight mb-4">
         It all starts with a single conversation.
       </h2>
-      <p className="text-gray-400 max-w-2xl mx-auto text-lg mb-10">
+      <p className="text-gray-400 max-w-2xl mx-auto text-lg mb-4">
         Building your real estate empire doesn’t have to be confusing, scary or
         overwhelming. If you have questions, want to start the process or just
         want some guidance, you can book a call on my calendar right here:

@@ -7,9 +7,10 @@ import { IoIosArrowDown } from "react-icons/io";
 import { MdOutlineHorizontalRule } from "react-icons/md";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 
+
 const GlobalSearch = () => {
   const [searchValue, setSearchValue] = useState("");
-  const [selectedOption, setSelectedOption] = useState("Buy");
+  const [selectedOption, setSelectedOption] = useState("For Sale");
   const [isOptionShow, setIsOptionShow] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -59,11 +60,11 @@ const GlobalSearch = () => {
                     transition={{ duration: 0.3 }}
                     className="absolute bg-secondary-pinkLight text-white px-6 py-1 rounded-full"
                     onClick={() => {
-                      setSelectedOption("Buy");
+                      setSelectedOption("For Sale");
                       setIsOptionShow(false);
                     }}
                   >
-                    Buy
+                    For Sale
                   </motion.button>
                 )}
               </AnimatePresence>
@@ -95,12 +96,12 @@ const GlobalSearch = () => {
                     }
                     transition={{ duration: 0.3 }}
                     onClick={() => {
-                      setSelectedOption("Rent");
+                      setSelectedOption("For Rent");
                       setIsOptionShow(false);
                     }}
                     className="absolute bg-secondary-pinkLight text-white px-6 py-1 rounded-full"
                   >
-                    Rent
+                    For Rent
                   </motion.button>
                 )}
               </AnimatePresence>

@@ -7,6 +7,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import { globalServices } from "@/services/global.services";
 import Swal from "sweetalert2";
 import { useGlobalContext } from "@/context/GlobalContext";
+import UserType from "./UserType";
 
 interface FormData {
   name: string;
@@ -137,6 +138,7 @@ const ContactFields = () => {
         error={errors.message}
         rows={4}
       />
+      <UserType />
       <Button
         type="submit"
         className="py-3 text-white w-full flex align-center"
