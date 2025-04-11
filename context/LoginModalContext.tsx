@@ -22,6 +22,8 @@ type LoginModalContextType = {
   setIsLogin: Dispatch<SetStateAction<boolean>>;
   isForgot: boolean;
   setIsForgot: Dispatch<SetStateAction<boolean>>;
+  setIsLogged: Dispatch<SetStateAction<boolean>>;
+  logged: boolean;
 };
 
 const LoginModalContext = createContext<LoginModalContextType | undefined>(
@@ -32,6 +34,7 @@ export const LoginModalProvider = ({ children }: { children: ReactNode }) => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   const [isLogin, setIsLogin] = useState(true);
   const [isForgot, setIsForgot] = useState(false);
+  const [logged, setIsLogged] = useState(false);
   const {
     isOpen: isMetaOpen,
     onOpen: onMetaOpen,
@@ -54,6 +57,8 @@ export const LoginModalProvider = ({ children }: { children: ReactNode }) => {
         onMetaOpen,
         onMetaOpenChange,
         onMetaClose,
+        setIsLogged,
+        logged,
       }}
     >
       {children}

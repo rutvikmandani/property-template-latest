@@ -6,15 +6,22 @@ import { redirect } from "next/navigation";
 import { FullPageLoader } from "../Loader";
 import Sidebar from "./Sidebar";
 import styles from "@/styles/Container.module.scss";
+import { useLoginModalContext } from "@/context/LoginModalContext";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const { hasToken } = useGlobalContext();
+  const { logged } = useLoginModalContext();
 
   // useEffect(() => {
   //   if(hasToken === false){
   //     redirect('/')
   //   }
   // }, [hasToken])
+  useEffect(() => {
+    if (logged === false) {
+      redirect("/");
+    }
+  }, [logged]);
   // return hasToken === true ? (
   return true ? (
     <div className={`${styles.mainContainer} p-0 sm:p-8`}>

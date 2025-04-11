@@ -19,7 +19,7 @@ const buttonStyle = `flex cursor-pointer text-[14px] border-3 border-secondary-p
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   // const { configuration } = useGlobalContext();
-  const { onOpen, setIsForgot, setIsLogin } = useLoginModalContext();
+  const { onOpen, setIsForgot, setIsLogin, logged } = useLoginModalContext();
 
   const listMenuTabs = [
     "Residential",
@@ -119,12 +119,15 @@ const Header = () => {
   const getButtons = () => {
     return (
       <>
-        {/* <div className={buttonStyle} onClick={handleLogin}>
-          Login
-        </div> */}
-        <Link href="/my-profile" className={buttonStyle}>
-          User
-        </Link>
+        {logged ? (
+          <Link href="/my-profile" className={buttonStyle}>
+            User
+          </Link>
+        ) : (
+          <div className={buttonStyle} onClick={handleLogin}>
+            Login
+          </div>
+        )}
         <Link href="/contact-us" className={buttonStyle}>
           Schedule A Call
           <FaLongArrowAltRight />
@@ -136,7 +139,7 @@ const Header = () => {
   return (
     <>
       <nav
-        className={`bg-primary-light text-primary max-w-full py-5 w-full sticky px-10 top-0 ${styles.navbarWrapper}`}
+        className={`bg-primary-light text-primary max-w-full py-5 w-full sticky px-10 top-0 shadow ${styles.navbarWrapper}`}
       >
         <header className="container w-full max-w-full flex justify-between items-center">
           <Link href="/">

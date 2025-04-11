@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 import { globalServices } from "@/services/global.services";
 import { logout } from "@/utils/common";
 import { useGlobalContext } from "@/context/GlobalContext";
+import { useLoginModalContext } from "@/context/LoginModalContext";
 
 const menuStyle =
   "flex items-center gap-2 text-[16px] rounded-xl hover:bg-secondary-redBg font-medium text-white h-12 px-3";
@@ -20,39 +21,41 @@ export default function Sidebar() {
   const pathname = usePathname();
   const router = useRouter();
   const { setHasToken, setUser } = useGlobalContext();
+  const {setIsLogged} = useLoginModalContext()
 
   const handleLogout = () => {
-    Swal.fire({
-      title: "Ready to leave?",
-      text: "You will be logged out of your account.",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#ef4444",
-      cancelButtonColor: "#22c55e",
-      confirmButtonText: "Logout",
-      cancelButtonText: "Stay",
-      reverseButtons: true,
-    }).then((result) => {
-      if (result.isConfirmed) {
-        // globalServices.post("/logout")
-        // .then(() => {
-        //   setUser(null);
-        //   setHasToken(false);
-        //   logout();
-        //   router.push("/");
-        //   Swal.fire({
-        //     title: "Logout!",
-        //     text: "Logout Successfully",
-        //     icon: "success",
-        //     showConfirmButton: false,
-        //     timer: 1500
-        //   });
-        // })
-        // .catch((err) => {
-        //   console.log("login error", err)
-        // });
-      }
-    });
+    setIsLogged(false)
+    // Swal.fire({
+    //   title: "Ready to leave?",
+    //   text: "You will be logged out of your account.",
+    //   icon: "warning",
+    //   showCancelButton: true,
+    //   confirmButtonColor: "#ef4444",
+    //   cancelButtonColor: "#22c55e",
+    //   confirmButtonText: "Logout",
+    //   cancelButtonText: "Stay",
+    //   reverseButtons: true,
+    // }).then((result) => {
+    //   if (result.isConfirmed) {
+    //     // globalServices.post("/logout")
+    //     // .then(() => {
+    //     //   setUser(null);
+    //     //   setHasToken(false);
+    //     //   logout();
+    //     //   router.push("/");
+    //     //   Swal.fire({
+    //     //     title: "Logout!",
+    //     //     text: "Logout Successfully",
+    //     //     icon: "success",
+    //     //     showConfirmButton: false,
+    //     //     timer: 1500
+    //     //   });
+    //     // })
+    //     // .catch((err) => {
+    //     //   console.log("login error", err)
+    //     // });
+    //   }
+    // });
   };
 
   return (

@@ -39,6 +39,7 @@ export default function SignPopup() {
     setIsLogin,
     isForgot,
     setIsForgot,
+    setIsLogged,
   } = useLoginModalContext();
   const [isLoading, setIsLoading] = useState(false);
   const [name, setName] = useState("");
@@ -256,6 +257,8 @@ export default function SignPopup() {
   const submitForm = () => {
     const validate = handleValidate();
     if (!validate) return;
+    setIsLogged(true);
+    onOpenChange()
     // if (isForgot) {
     //   handleForgotPassword();
     // } else if (isLogin) {
