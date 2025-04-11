@@ -83,7 +83,9 @@ const Header = () => {
         {navTabs.map((a, index) => (
           <li className={`relative group ${styles.navItem}`} key={index}>
             {a.path?.length > 0 ? (
-              <Link href={a.path}>{getMenu(a)}</Link>
+              <Link href={a.path} onClick={dropDownClose}>
+                {getMenu(a)}
+              </Link>
             ) : (
               getMenu(a)
             )}
@@ -93,6 +95,7 @@ const Header = () => {
                 <ul className="lg:absolute left-0 cursor-pointe p-1 flex flex-col w-full lg:w-[200px] bg-white rounded-xl shadow-lg opacity-0 scale-y-0 origin-top transition-all duration-300 ease-out group-hover:opacity-100 group-hover:scale-y-100 border border-secondary-black3">
                   {a.subMenus.map((a) => (
                     <Link
+                      onClick={dropDownClose}
                       href={`/property-list?listingType=${a}`}
                       key={a}
                       className="px-4 py-2 hover:bg-secondary-pinkLight hover:text-white rounded-xl"
@@ -113,14 +116,24 @@ const Header = () => {
     localStorage.removeItem("fromSoldHistory");
     setIsForgot(false);
     setIsLogin(true);
+    dropDownClose();
     onOpen();
+  };
+
+  const dropDownClose = () => {
+    console.log("first");
+    setIsOpen(false);
   };
 
   const getButtons = () => {
     return (
       <>
         {logged ? (
-          <Link href="/my-profile" className={buttonStyle}>
+          <Link
+            onClick={dropDownClose}
+            href="/my-profile"
+            className={buttonStyle}
+          >
             User
           </Link>
         ) : (
@@ -128,7 +141,11 @@ const Header = () => {
             Login
           </div>
         )}
-        <Link href="/contact-us" className={buttonStyle}>
+        <Link
+          onClick={dropDownClose}
+          href="/contact-us"
+          className={buttonStyle}
+        >
           Schedule A Call
           <FaLongArrowAltRight />
         </Link>
@@ -142,7 +159,7 @@ const Header = () => {
         className={`bg-primary-light text-primary max-w-full py-5 w-full sticky px-10 top-0 shadow ${styles.navbarWrapper}`}
       >
         <header className="container w-full max-w-full flex justify-between items-center">
-          <Link href="/">
+          <Link href="/" onClick={dropDownClose}>
             <Image
               src="https://s3.ca-central-1.amazonaws.com/mls-trreb/119/website/logo.png"
               className="w-auto z-1"
