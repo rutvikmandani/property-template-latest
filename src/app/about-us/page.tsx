@@ -1,8 +1,8 @@
 "use client";
 import Skeleton from "@/component/Skeleton";
-import { globalServices } from "@/services/global.services";
+// import { globalServices } from "@/services/global.services";
 import styles from "@/styles/Container.module.scss";
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
 
 const wrapperClass = "flex flex-col text-primary items-center gap-2";
 const descriptionText = "max-w-2xl text-lg";
@@ -11,10 +11,10 @@ const cardDesign = "shadow-custom rounded-xl bg-white p-4";
 const topSection = `grid md:grid-cols-2 items-center grid md:grid-cols-2 gap-10 ${cardDesign}`;
 const bottomSection = `grid md:grid-cols-2 gap-10`;
 
-async function fetchAbout() {
-  const res = await globalServices.getAll(`/about`);
-  return res;
-}
+// async function fetchAbout() {
+//   const res = await globalServices.getAll(`/about`);
+//   return res;
+// }
 
 export default function AboutUs() {
   // const { data, isLoading } = useQuery({

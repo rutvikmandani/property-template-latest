@@ -12,9 +12,10 @@ import { FaFacebook, FaInstagram } from "react-icons/fa";
 const lineStyle = "flex items-center gap-2 text-[18px] leading-[28px]";
 
 const ContactUs = () => {
-  const { configuration, isConfigurationLoading } = useGlobalContext();
+  // const { configuration, isConfigurationLoading } = useGlobalContext();
+  const { isConfigurationLoading } = useGlobalContext();
 
-  const { phone, email, address, agent_name } = configuration?.website || {};
+  // const { phone, email, address, agent_name } = configuration?.website || {};
 
   return (
     <div className="px-6 py-10 flex flex-col gap-6">
@@ -87,14 +88,8 @@ const ContactUs = () => {
               </div>
             )}
             <div className="flex gap-2 mt-3">
-              <FaFacebook
-                size={18}
-                className="cursor-pointer"
-              />
-              <FaInstagram
-                size={18}
-                className="cursor-pointer"
-              />
+              <FaFacebook size={18} className="cursor-pointer" />
+              <FaInstagram size={18} className="cursor-pointer" />
             </div>
           </div>
 
