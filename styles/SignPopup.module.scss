@@ -1,0 +1,23 @@
+.rightBodyContent {
+  padding: 34px 30px 30px;
+  background-color: #fff;
+  flex-grow: 1;
+}
+
+.formInput {
+  width: 100%;
+}
+
+.loginLinkText {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 18px;
+  margin-left: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    color: #FF9090;
+  }
+}

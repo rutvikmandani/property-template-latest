@@ -1,11 +1,16 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import styles from "@/styles/Container.module.scss";
 import properties from "@/public/propertyData.json";
 import { useRouter, useSearchParams } from "next/navigation";
 import { PropertyCard } from "../PropertyCard";
+import AdvanceOptions from "./AdvanceOptions";
+import ActionFields from "../MapSearch/ActionFields";
+import PropertyList from "./PropertyList";
+import MapSearch from "../MapSearch";
 
 const PropertyListingPageContent = () => {
+  const [selectedView, setSelectedView] = useState("Grid");
   const router = useRouter();
   const searchParams = useSearchParams();
   const listingType = searchParams.get("listingType");
@@ -19,26 +24,16 @@ const PropertyListingPageContent = () => {
       <div
         className={`${styles.innerContent} w-full flex-col md:flex-row text-[#212529]`}
       >
-        <h1 className="text-secondary-pinkLight font-bold text-[30px] md:text-[40px]  mb-6">
-          {`${listingType ? listingType : ""} Property Listings`}
+        <h1 className="text-secondary-pinkLight font-bold capitalize text-[30px] md:text-[40px]  mb-6">
+          {`${listingType ? listingType?.toLowerCase() : ""} Property Listings`}
         </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 bg-neutral gap-6">
-          {[
-            ...properties,
-            ...properties,
-            ...properties,
-            ...properties,
-            ...properties,
-          ].map((a, index) => (
-            <div
-              key={index}
-              className={`shadow-md rounded-t-[20px] overflow-hidden w-full ${styles.cardWrapper}`}
-              onClick={() => router.push(`/property-detail/${a.listingKey}`)}
-            >
-              <PropertyCard {...a} index={index} />
-            </div>
-          ))}
-        </div>
+        <ActionFields />
+        <AdvanceOptions
+          setSelectedView={setSelectedView}
+          selectedView={selectedView}
+        />
+        {selectedView === "Grid" && <PropertyList />}
+        {selectedView === "Map" && <MapSearch />}
       </div>
     </div>
   );

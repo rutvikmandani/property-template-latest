@@ -5,9 +5,12 @@ import { Providers } from "./providers";
 import Header from "@/component/Layout/Header";
 import Footer from "@/component/Layout/Footer";
 import ProgressProvider from "@/component/ProgressBar";
-import { FullPageLoader } from "@/component/Loader";
+import QueryLoader, { FullPageLoader } from "@/component/Loader";
 import { Suspense } from "react";
 import { League_Spartan } from "next/font/google";
+import QueryProvider from "@/services/QueryProvider";
+import { LoginModalProvider } from "@/context/LoginModalContext";
+import { GlobalProvider } from "@/context/GlobalContext";
 
 const leagueSpartan = League_Spartan({
   subsets: ["latin"],
@@ -37,15 +40,22 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
-          <Suspense fallback={<FullPageLoader />}>
-            <ProgressProvider>
-              <div className="h-full w-full bg-secondary-bg min-h-screen">
-                <Header />
-                {children}
-                <Footer />
-              </div>
-            </ProgressProvider>
-          </Suspense>
+          <QueryProvider>
+            <QueryLoader />
+            <LoginModalProvider>
+              <GlobalProvider>
+                <Suspense fallback={<FullPageLoader />}>
+                  <ProgressProvider>
+                    <div className="h-full w-full bg-secondary-bg min-h-screen">
+                      <Header />
+                      {children}
+                      <Footer />
+                    </div>
+                  </ProgressProvider>
+                </Suspense>
+              </GlobalProvider>
+            </LoginModalProvider>
+          </QueryProvider>
         </Providers>
       </body>
     </html>

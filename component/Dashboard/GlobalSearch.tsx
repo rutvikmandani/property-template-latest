@@ -109,7 +109,8 @@ const GlobalSearch = () => {
 
           <InputField
             value={searchValue}
-            className={styles.globalSearch}
+            withBorder={false}
+            className={`${styles.globalSearch} bg-fieldBg border-none`}
             onChange={(e) => setSearchValue(e.target.value)}
             placeholder={"Enter a City, Neighborhood, Address, MLS"}
           />

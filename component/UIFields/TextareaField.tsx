@@ -7,7 +7,9 @@ interface TextareaProps
   label?: string;
   error?: string;
   isInvalid?: boolean;
-  onChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  onChange: (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
 }
 
 const TextareaField = forwardRef<HTMLTextAreaElement, TextareaProps>(
@@ -22,15 +24,14 @@ const TextareaField = forwardRef<HTMLTextAreaElement, TextareaProps>(
         )}
         <Textarea
           ref={ref}
+          variant="bordered"
           placeholder={placeholder}
-          className={`w-full bg-fieldBg border rounded-[12px] focus:ring-2 focus:ring-blue-500 ${
-            error ? "border-red-500" : "border-gray-300"
-          } ${className} ${styles.textareaWrapper}`}
+          className={`w-full ${className} ${styles.textareaWrapper}`}
           value={value.toString()}
           isInvalid={isInvalid}
           onChange={(e) => onChange(e)}
         />
-        {error && <p className="text-sm text-red-500 mt-1">{error}</p>}
+        {error && <p className="text-sm text-secondary-red mt-1">{error}</p>}
       </div>
     );
   }

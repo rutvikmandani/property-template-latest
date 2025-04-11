@@ -12,6 +12,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Tooltip } from "@heroui/react";
 import moment from "moment";
+import { RiDeleteBin2Line } from "react-icons/ri";
+import FavoriteButton from "./FavoriteButton";
 
 type PropertyCardProps = {
   title: string;
@@ -26,6 +28,8 @@ type PropertyCardProps = {
   isFavorite: boolean;
   createdAt: string;
   index: number;
+  displayDeleteIcon?: boolean;
+  handleDelete?: (id: string) => void;
 };
 
 export const PropertyCard = ({
@@ -38,6 +42,9 @@ export const PropertyCard = ({
   listingKey,
   transactionType,
   createdAt,
+  displayDeleteIcon = false,
+  handleDelete,
+  isFavorite,
 }: PropertyCardProps) => {
   const handleRedirect = () => {};
 
@@ -53,10 +60,6 @@ export const PropertyCard = ({
           modules={[Navigation, Pagination]}
           observeParents={true}
           observer={true}
-          navigation={{
-            nextEl: ".homes-next",
-            prevEl: ".homes-prev",
-          }}
           pagination={{ clickable: true }}
           spaceBetween={10}
           className={styles.imgSwiperContainer}
@@ -98,6 +101,27 @@ export const PropertyCard = ({
             className={`${styles.zIndex1} text-[12px] font-semibold absolute bottom-2 z-1 right-2 rounded-full bg-secondary-black2 text-white py-1 px-2`}
           >
             {timeAgo(createdAt)}
+          </div>
+        )}
+
+        {/* {user && ( */}
+        {!displayDeleteIcon && (
+          <FavoriteButton
+            isFavorite={Boolean(isFavorite)}
+            listingKey={listingKey}
+          />
+        )}
+
+        {displayDeleteIcon && (
+          <div
+            className={`${styles.zIndex1} text-[12px] font-semibold absolute top-2 z-1 right-2 rounded-full bg-secondary-pinkLight text-white py-1 px-2`}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              handleDelete && handleDelete(listingKey);
+            }}
+          >
+            <RiDeleteBin2Line size={20} className="!text-black" />
           </div>
         )}
       </div>

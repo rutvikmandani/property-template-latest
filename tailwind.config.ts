@@ -11,7 +11,7 @@ export default {
   theme: {
     extend: {
       fontSize: {
-        'nav': '18px',
+        nav: "18px",
         "20px": "20px",
       },
       fontFamily: {
@@ -30,6 +30,8 @@ export default {
           bg: "#F8F8F8",
           black2: "#222222",
           black3: "#f1f1f0",
+          red: "#f31260",
+          redBg: "#7114146b",
         },
         neutral: {
           DEFAULT: "#F8F8F8",

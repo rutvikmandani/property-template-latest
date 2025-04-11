@@ -20,7 +20,7 @@ const Button = ({
     <HeroUIButton
       onPress={onPress}
       isDisabled={isLoading}
-      className={`${className} bg-secondary-pinkLight idx-button`}
+      className={`text-white bg-secondary-pinkLight idx-button ${className}`}
       {...rest}
     >
       {children}

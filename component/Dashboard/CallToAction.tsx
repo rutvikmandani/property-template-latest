@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
@@ -13,10 +14,12 @@ const CallToAction = () => {
         want some guidance, you can book a call on my calendar right here:
       </p>
       <div className="flex justify-center">
-        <button className="border-2 border-secondary-pinkLight text-white px-6 py-3 rounded-full hover:bg-secondary-pinkLight hover:text-black transition duration-300 flex items-center gap-2 text-lg font-medium">
-          Schedule A Call
-          <FaLongArrowAltRight />
-        </button>
+        <Link href="/contact-us">
+          <button className="border-2 border-secondary-pinkLight text-white px-6 py-3 rounded-full hover:bg-secondary-pinkLight hover:text-black transition duration-300 flex items-center gap-2 text-lg font-medium">
+            Schedule A Call
+            <FaLongArrowAltRight />
+          </button>
+        </Link>
       </div>
     </div>
   );

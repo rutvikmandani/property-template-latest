@@ -2,11 +2,17 @@ import React, { forwardRef } from "react";
 import { Select, SelectItem } from "@heroui/react";
 import styles from "@/styles/Container.module.scss";
 
+const smallSelectClass = { innerWrapper: "px-[6px]", trigger: "h-[40px]" };
+const selectClass = { innerWrapper: "px-[6px]", trigger: "h-[54px]" };
+
 interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
-  options: string[];
+  options: { key: string; label: string }[];
   label?: string;
   placeholder?: string;
   error?: string;
+  disallowEmptySelection?: boolean;
+  selectedKeys?: string[];
+  small?: boolean;
 }
 
 const SelectField = forwardRef<HTMLSelectElement, SelectProps>(
@@ -18,30 +24,36 @@ const SelectField = forwardRef<HTMLSelectElement, SelectProps>(
       error,
       className,
       onChange,
-      ...rest
+      disallowEmptySelection,
+      selectedKeys,
+      small = false,
     },
     ref
   ) => {
     return (
-      <div className="w-full relative">
+      <div className="relative">
         {label && (
           <label className="block mb-1 text-sm font-medium">{label}</label>
         )}
 
         <Select
+          classNames={small ? smallSelectClass : selectClass}
+          disallowEmptySelection={disallowEmptySelection}
+          variant="bordered"
+          selectedKeys={selectedKeys}
           placeholder={placeholder}
-          className={`w-full border appearance-none rounded-[12px] bg-transparent bg-fieldBg hover:rounded-lg
-              ${error ? "border-red-500" : "border-gray-300"} ${className} ${styles.selectWrapper} selectWrapper`}
+          className={`appearance-none rounded-[12px]
+              ${className} ${styles.selectWrapper} selectWrapper`}
           onChange={(e) => {
             onChange?.(e);
           }}
         >
           {options.map((option) => (
-            <SelectItem key={option}>{option}</SelectItem>
+            <SelectItem key={option.key}>{option.label}</SelectItem>
           ))}
         </Select>
 
-        {error && <p className="text-sm text-red-500 mt-1">{error}</p>}
+        {error && <p className="text-sm text-secondary-red mt-1">{error}</p>}
       </div>
     );
   }

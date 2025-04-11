@@ -9,11 +9,17 @@ import Image from "next/image";
 import { IoMenu } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import SignPopup from "@/component/SignPopup";
+import AfterAfterSignPopup from "@/component/AfterSignPopup";
+import { useGlobalContext } from "@/context/GlobalContext";
+import { useLoginModalContext } from "@/context/LoginModalContext";
 
 const buttonStyle = `flex cursor-pointer text-[14px] border-3 border-secondary-pinkLight font-medium px-2 py-1 rounded-full px-6 py-3 flex gap-1 items-center`;
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  // const { configuration } = useGlobalContext();
+  const { onOpen, setIsForgot, setIsLogin } = useLoginModalContext();
 
   const listMenuTabs = [
     "Residential",
@@ -36,6 +42,11 @@ const Header = () => {
     },
     {
       name: "Blogs",
+      subMenus: [],
+      path: "/blogs",
+    },
+    {
+      name: "Useful Tools",
       subMenus: [],
       path: "/blogs",
     },
@@ -98,61 +109,77 @@ const Header = () => {
     );
   };
 
+  const handleLogin = () => {
+    localStorage.removeItem("fromSoldHistory");
+    setIsForgot(false);
+    setIsLogin(true);
+    onOpen();
+  };
+
   const getButtons = () => {
     return (
       <>
-        <div className={buttonStyle}>Login</div>
-        <div className={buttonStyle}>
+        {/* <div className={buttonStyle} onClick={handleLogin}>
+          Login
+        </div> */}
+        <Link href="/my-profile" className={buttonStyle}>
+          User
+        </Link>
+        <Link href="/contact-us" className={buttonStyle}>
           Schedule A Call
           <FaLongArrowAltRight />
-        </div>
+        </Link>
       </>
     );
   };
 
   return (
-    <nav
-      className={`bg-primary-light text-primary max-w-full py-5 w-full sticky px-10 top-0 ${styles.navbarWrapper}`}
-    >
-      <header className="container w-full max-w-full flex justify-between items-center">
-        <Link href="/">
-          <Image
-            src="https://s3.ca-central-1.amazonaws.com/mls-trreb/119/website/logo.png"
-            className="w-auto z-1"
-            alt="logo"
-            width={105}
-            height={45}
-          />
-        </Link>
+    <>
+      <nav
+        className={`bg-primary-light text-primary max-w-full py-5 w-full sticky px-10 top-0 ${styles.navbarWrapper}`}
+      >
+        <header className="container w-full max-w-full flex justify-between items-center">
+          <Link href="/">
+            <Image
+              src="https://s3.ca-central-1.amazonaws.com/mls-trreb/119/website/logo.png"
+              className="w-auto z-1"
+              alt="logo"
+              width={105}
+              height={45}
+            />
+          </Link>
 
-        <div className="hidden lg:flex flex-col">
-          <ul className="hidden lg:flex space-x-6 items-center font-medium text-nav">
+          <div className="hidden lg:flex flex-col">
+            <ul className="hidden lg:flex space-x-6 items-center font-medium text-nav">
+              {getTabSection()}
+            </ul>
+          </div>
+          <div className="lg:hidden rounded bg-secondary-pinkLight p-2 flex">
+            <button onClick={() => setIsOpen(!isOpen)}>
+              {isOpen ? (
+                <IoClose size={28} color="white" />
+              ) : (
+                <IoMenu size={28} color="white" />
+              )}
+            </button>
+          </div>
+          <div className="hidden lg:flex gap-6">{getButtons()}</div>
+        </header>
+
+        {isOpen && (
+          <ul
+            className={`lg:hidden flex flex-col space-y-4 pt-4 ${
+              isOpen ? styles.slideDownAnimation : styles.slideUpAnimation
+            }`}
+          >
             {getTabSection()}
+            <div className="flex gap-6">{getButtons()}</div>
           </ul>
-        </div>
-        <div className="lg:hidden rounded bg-secondary-pinkLight p-2 flex">
-          <button onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? (
-              <IoClose size={28} color="white" />
-            ) : (
-              <IoMenu size={28} color="white" />
-            )}
-          </button>
-        </div>
-        <div className="hidden lg:flex gap-6">{getButtons()}</div>
-      </header>
-
-      {isOpen && (
-        <ul
-          className={`lg:hidden flex flex-col space-y-4 pt-4 ${
-            isOpen ? styles.slideDownAnimation : styles.slideUpAnimation
-          }`}
-        >
-          {getTabSection()}
-          <div className="flex gap-6">{getButtons()}</div>
-        </ul>
-      )}
-    </nav>
+        )}
+      </nav>
+      <SignPopup />
+      <AfterAfterSignPopup />
+    </>
   );
 };
 
