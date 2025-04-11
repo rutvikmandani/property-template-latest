@@ -1,17 +1,17 @@
 "use client";
 import { FullPageLoader } from "@/component/Loader";
-import { globalServices } from "@/services/global.services";
+// import { globalServices } from "@/services/global.services";
 import styles from "@/styles/Container.module.scss";
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
 
 const descriptionText = "max-w-2xl text-lg";
 const titleText = "text-xl font-semibold mb-2 text-secondary-pinkLight";
 const cardDesign = "shadow rounded-xl bg-white p-4";
 
-async function fetchAbout() {
+// async function fetchAbout() {
   // const res = await globalServices.getAll(`/about`);
   // return res;
-}
+// }
 
 export default function AboutUs() {
   // const { data, isLoading } = useQuery({

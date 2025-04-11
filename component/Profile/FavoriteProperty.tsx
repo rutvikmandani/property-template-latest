@@ -99,7 +99,7 @@ export default function FavoriteProperty() {
     isLoading: false,
   };
 
-  const [properties, setProperties] = useState([]);
+  const [properties, setProperties] = useState<Property[]>([]);
   const [isLoader, setIsLoader] = useState(false);
 
   useEffect(() => {

@@ -11,7 +11,9 @@ const ContactUs = () => {
         <h1 className="text-secondary-pinkLight font-bold text-[30px] md:text-[40px]">
           Contact Us
         </h1>
-        <p className="text-[18px]">We're here to help. Reach out anytime.</p>
+        <p className="text-[18px]">
+          {"We're here to help. Reach out anytime."}
+        </p>
       </div>
 
       <div className="flex items-center justify-center ">
