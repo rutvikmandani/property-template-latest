@@ -9,7 +9,7 @@ const descriptionText = "max-w-2xl text-lg";
 const titleText = "text-xl font-semibold mb-2 text-secondary-pinkLight";
 const cardDesign = "shadow-custom rounded-xl bg-white p-4";
 const topSection = `grid md:grid-cols-2 items-center grid md:grid-cols-2 gap-10 ${cardDesign}`;
-const bottomSection = `grid md:grid-cols-2 gap-10`;
+const bottomSection = `grid md:grid-cols-2 gap-4`;
 
 // async function fetchAbout() {
 //   const res = await globalServices.getAll(`/about`);
@@ -49,8 +49,8 @@ export default function AboutUs() {
   const aboutData = data;
 
   return (
-    <div className={`${styles.mainContainer} p-8`}>
-      <div className={`${styles.innerContent} px-6 flex flex-col gap-6`}>
+    <div className={`${styles.mainContainer} px-4 sm:px-10 py-10`}>
+      <div className={`${styles.innerContent} flex flex-col gap-6`}>
         {isLoading ? (
           <>
             <div className={wrapperClass}>

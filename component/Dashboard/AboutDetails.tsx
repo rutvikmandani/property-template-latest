@@ -3,7 +3,7 @@ import styles from "@/styles/Container.module.scss";
 
 const AboutDetails = () => {
   return (
-    <div className={`${styles.mainContainer} ${styles.aboutInfo} md:py-6 md:px-8`}>
+    <div className={`${styles.mainContainer} ${styles.aboutInfo} md:p-10`}>
       <div className={styles.innerContent}>
         <div
           className={`grid grid-cols-1 md:grid-cols-[1fr_1.5fr] justify-items-center md:gap-7 bg-secondary-pinkLight md:bg-transparent`}
@@ -13,7 +13,7 @@ const AboutDetails = () => {
             alt="banner"
             className="w-full bottom-0 max-w-[300px] pt-3 md:pt-0 items-center object-contain h-full"
           />
-          <div className="flex flex-col gap-4 text-secondary-blackLight rounded-t-[24px] md:rounded-xl items-center text-center md:items-start md:text-start bg-white p-6">
+          <div className="flex flex-col gap-4 text-secondary-blackLight rounded-t-[24px] md:rounded-xl items-center text-center md:items-start md:text-start bg-white p-4">
             <h1 className="text-secondary-pinkLight font-bold text-[30px] md:text-[40px]">
               Hey, I'm Hetal!
             </h1>

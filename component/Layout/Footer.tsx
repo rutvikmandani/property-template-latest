@@ -32,7 +32,7 @@ const Footer = () => {
 
   return (
     <footer
-      className={`${styles.mainContainer} bg-white text-black py-5 px-4 sm:px-10`}
+      className={`${styles.mainContainer} bg-white text-black py-5 px-4 sm:px-10 shadow-custom`}
     >
       <div className={styles.innerContent}>
         <div className="max-w-7xl mx-auto flex flex-col items-start sm:flex-col md:flex-row justify-between items-start md:items-center gap-10">

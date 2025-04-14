@@ -4,7 +4,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 
 const CallToAction = () => {
   return (
-    <div className="bg-black text-white text-center py-8 px-8">
+    <div className="bg-black text-white text-center px-4 sm:px-10 py-10">
       <h2 className="text-4xl md:text-5xl max-w-2xl mx-auto font-black text-secondary-pinkLight leading-tight mb-4">
         It all starts with a single conversation.
       </h2>

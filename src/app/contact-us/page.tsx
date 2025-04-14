@@ -20,7 +20,7 @@ const ContactUs = () => {
 
   return (
     <div className={`${styles.mainContainer}`}>
-      <div className={`px-6 py-8 flex flex-col gap-6 ${styles.innerContent}`}>
+      <div className={`px-4 sm:px-10 py-10 flex flex-col gap-6 ${styles.innerContent}`}>
         <div className="flex flex-col text-primary items-center">
           <h1 className="text-secondary-pinkLight font-bold text-[30px] md:text-[40px]">
             Contact Us

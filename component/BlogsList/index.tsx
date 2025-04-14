@@ -77,7 +77,7 @@ const BlogsList = () => {
   };
 
   return (
-    <div className={`${styles.mainContainer} p-8`}>
+    <div className={`${styles.mainContainer} px-4 sm:px-10 py-10`}>
       <div
         // className={`${styles.innerContent} grid grid-cols-1 md:gap-4 ${(blogs?.isLoading || !!blogsData?.length) && "md:grid-cols-2 lg:grid-cols-3"}`}
         className={`${styles.innerContent} grid grid-cols-1 md:gap-4  md:grid-cols-2 lg:grid-cols-3`}

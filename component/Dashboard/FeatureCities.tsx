@@ -69,7 +69,7 @@ const FeatureCities = () => {
   ];
   return (
     <div className={styles.mainContainer}>
-      <div className={`${styles.innerContent} text-center py-6 px-8`}>
+      <div className={`${styles.innerContent} text-center px-4 sm:px-10 py-10`}>
         <h1 className="text-secondary-pinkLight font-bold text-[30px] md:text-[40px]  mb-6">
           Featured Cities
         </h1>

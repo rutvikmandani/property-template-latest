@@ -11,7 +11,7 @@ const boxStyle = `bg-white shadow-custom rounded-xl p-6`;
 const MyAlerts = () => {
   const [isSelected, setIsSelected] = React.useState(false);
   return (
-    <div className="px-4 sm:px-0 text-primary pb-4 sm:pb-0">
+    <div className="text-primary">
       <div className="text-[26px] font-semibold mb-4">My Alerts</div>
       <div className="grid md:grid-cols-2 gap-8">
         {Array.from({ length: 4 }).map((_, index) => (

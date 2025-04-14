@@ -4,7 +4,7 @@ import FavoriteProperty from "./FavoriteProperty";
 
 export default function MyFavorites() {
   return (
-    <div className="px-4 sm:px-0 pb-4 sm:pb-0">
+    <div>
       <div className="flex flex-col text-primary mb-4">
         <h1 className="text-secondary-pinkLight font-bold text-[30px] md:text-[40px]">
           My Favorites

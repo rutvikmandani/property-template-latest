@@ -6,6 +6,7 @@ import SelectField from "../UIFields/SelectField";
 import { Slider } from "@heroui/react";
 import Button from "../UIFields/Button";
 import { useLoginModalContext } from "@/context/LoginModalContext";
+import styles from "@/styles/Container.module.scss";
 
 const marks = [
   {
@@ -317,7 +318,7 @@ const NewListingPageContent = () => {
   };
 
   return (
-    <div className={`flex justify-center w-full bg-secondary-bg`}>
+    <div className={`${styles.mainContainer} !bg-secondary-bg px-4 sm:px-10 py-10`}>
       <div
         className={`max-w-[750px] w-full bg-white flex flex-col gap-4 rounded-xl p-4 text-[#212529] shadow-custom`}
       >

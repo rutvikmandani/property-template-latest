@@ -18,7 +18,7 @@ const PropertyListingPageContent = () => {
     router.replace(`?`, { scroll: false });
   };
   return (
-    <div className={`${styles.mainContainer} !bg-neutral-light p-8`}>
+    <div className={`${styles.mainContainer} !bg-neutral-light px-4 sm:px-10 py-10`}>
       <div
         className={`${styles.innerContent} w-full flex-col md:flex-row text-[#212529]`}
       >

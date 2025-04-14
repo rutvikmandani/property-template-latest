@@ -40,9 +40,11 @@ const PropertyList = () => {
   return (
     <div className={styles.mainContainer}>
       <div>
-        <div className={`${styles.innerContent} text-center py-6 px-8`}>
+        <div
+          className={`${styles.innerContent} text-center py-10 px-4 sm:px-10 pb-6`}
+        >
           <h1 className="text-secondary-pinkLight font-bold text-[30px] md:text-[40px]  mb-6">
-            Today's Listing
+            Today's Listings
           </h1>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 justify-items-center lg:grid-cols-4">
             {properties.map((property: Property, index: number) =>

@@ -63,7 +63,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="px-4 sm:px-0 text-primary pb-4 sm:pb-0">
+    <div className="text-primary">
       <div className="text-[26px] font-semibold">My Profiles</div>
       <div className="mb-4">We are glad to see you again!</div>
       <div className="flex flex-col gap-8">
