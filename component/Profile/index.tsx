@@ -1,5 +1,4 @@
 "use client";
-import styles from "@/styles/Container.module.scss";
 import ProfileForm from "./ProfileForm";
 import SocialMediaForm from "./SocialMediaForm";
 import ChangePasswordForm from "./ChangePasswordForm";

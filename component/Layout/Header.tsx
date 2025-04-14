@@ -39,11 +39,13 @@ const Header = () => {
       name: "Listings",
       subMenus: listMenuTabs,
       path: "",
+      subMenuBaseUrl: "/property-list?listingType",
     },
     {
       name: "Useful Tools",
       subMenus: alertsList,
       path: "/blogs",
+      subMenuBaseUrl: "/new-listing?listingType",
     },
     {
       name: "About Us",
@@ -93,14 +95,14 @@ const Header = () => {
             {!!a.subMenus.length && (
               <div className="h-0 group-hover:h-auto transition-all duration-300 overflow-hidden rounded-xl shadow-custom">
                 <ul className="lg:absolute left-0 cursor-pointe p-1 flex flex-col w-full lg:w-[200px] bg-white rounded-xl shadow-custom opacity-0 scale-y-0 origin-top transition-all duration-300 ease-out group-hover:opacity-100 group-hover:scale-y-100 border border-secondary-black3">
-                  {a.subMenus.map((a) => (
+                  {a.subMenus.map((b) => (
                     <Link
                       onClick={dropDownClose}
-                      href={`/property-list?listingType=${a}`}
-                      key={a}
+                      href={`${a.subMenuBaseUrl}=${b}`}
+                      key={b}
                       className="px-4 py-2 hover:bg-secondary-pinkLight hover:text-white rounded-xl"
                     >
-                      {a}
+                      {b}
                     </Link>
                   ))}
                 </ul>
@@ -121,7 +123,6 @@ const Header = () => {
   };
 
   const dropDownClose = () => {
-    console.log("first");
     setIsOpen(false);
   };
 
@@ -173,9 +174,11 @@ const Header = () => {
   return (
     <>
       <nav
-        className={`bg-primary-light text-primary max-w-full py-5 w-full sticky px-10 top-0 shadow-custom ${styles.navbarWrapper}`}
+        className={`bg-primary-light text-primary max-w-full py-5 w-full sticky px-4 sm:px-10 top-0 shadow-custom ${styles.navbarWrapper} ${styles.mainContainer}`}
       >
-        <header className="container w-full max-w-full flex  gap-1 justify-between items-center">
+        <header
+          className={`container w-full max-w-full flex  gap-1 justify-between items-center ${styles.innerContent}`}
+        >
           {isConfigurationLoading ? (
             <Skeleton className="h-[45px] w-[140px]" />
           ) : // ) : configuration?.website?.logo ? (

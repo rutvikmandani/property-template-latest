@@ -50,7 +50,7 @@ export default function AboutUs() {
 
   return (
     <div className={`${styles.mainContainer} p-8`}>
-      <div className={`${styles.innerContent} px-6 py-10 flex flex-col gap-6`}>
+      <div className={`${styles.innerContent} px-6 flex flex-col gap-6`}>
         {isLoading ? (
           <>
             <div className={wrapperClass}>

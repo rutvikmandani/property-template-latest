@@ -141,7 +141,7 @@ export default function FavoriteProperty() {
     router.push(`/property-detail/${listingKey}`);
   };
 
-  const getData = (data: Property, index: number) => {  
+  const getData = (data: Property, index: number) => {
     return (
       <div
         key={index}
@@ -154,20 +154,18 @@ export default function FavoriteProperty() {
   };
 
   return (
-    <div className="p-4 rounded-2xl lg:rounded-3xl border border-transparent md:border-[#ebebeb] bg-white">
-      <div className="space-y-6">
-        {properties && Array.isArray(properties) && properties.length > 0 ? (
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 justify-items-center">
-            {[...properties, ...properties, ...properties, ...properties].map(
-              (property: Property, index: number) => getData(property, index)
-            )}
-          </div>
-        ) : propertyData?.isLoading ? null : (
-          <div className="font-semibold text-lg text-center text-gray-600">
-            No Property Found
-          </div>
-        )}
-      </div>
+    <div className="space-y-6">
+      {properties && Array.isArray(properties) && properties.length > 0 ? (
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 justify-items-center">
+          {[...properties, ...properties, ...properties, ...properties].map(
+            (property: Property, index: number) => getData(property, index)
+          )}
+        </div>
+      ) : propertyData?.isLoading ? null : (
+        <div className="font-semibold text-lg text-center text-gray-600">
+          No Property Found
+        </div>
+      )}
     </div>
   );
 }

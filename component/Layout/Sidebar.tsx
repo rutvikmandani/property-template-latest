@@ -11,6 +11,7 @@ import { globalServices } from "@/services/global.services";
 import { logout } from "@/utils/common";
 import { useGlobalContext } from "@/context/GlobalContext";
 import { useLoginModalContext } from "@/context/LoginModalContext";
+import { HiOutlineBellAlert } from "react-icons/hi2";
 
 const menuStyle =
   "flex items-center gap-2 text-[16px] rounded-xl hover:bg-secondary-redBg font-medium text-white h-12 px-3";
@@ -21,8 +22,25 @@ export default function Sidebar() {
   const pathname = usePathname();
   const router = useRouter();
   const { setHasToken, setUser } = useGlobalContext();
-  const {setIsLogged} = useLoginModalContext()
+  const { setIsLogged } = useLoginModalContext();
 
+  const tabsList = [
+    {
+      icon: <FaRegUser size={18} />,
+      title: "My Profile",
+      link: "/my-profile",
+    },
+    {
+      icon: <RiHomeHeartLine size={18} />,
+      title: "My Favorites",
+      link: "/my-favorites",
+    },
+    {
+      icon: <HiOutlineBellAlert size={18} />,
+      title: "My Alerts",
+      link: "/my-alerts",
+    },
+  ];
 
   const handleLogout = () => {
     setIsLogged(false);
@@ -64,24 +82,22 @@ export default function Sidebar() {
   return (
     <>
       <div
-        className={`${styles.leftMenu}  top-[84px] bg-secondary-pinkLight sm:rounded-xl`}
+        className={`${styles.leftMenu} top-[84px] sm:top-[91px] bg-secondary-pinkLight sm:rounded-xl`}
       >
         <div className="menu-content">
-          <ul className="flex flex-col gap-2 p-1 lg:p-4">
-            <li className={`${pathname === "/my-profile" ? activeStyle : ""}`}>
-              <Link href="/my-profile" className={menuStyle}>
-                <FaRegUser size={18} />
-                My Profile
-              </Link>
-            </li>
-            <li
-              className={`${pathname === "/my-favorites" ? activeStyle : ""}`}
-            >
-              <Link href="/my-favorites" className={menuStyle}>
-                <RiHomeHeartLine size={20} />
-                My Favorites
-              </Link>
-            </li>
+          <ul className="flex flex-col gap-2 p-4 lg:p-4">
+            {tabsList.map((tab, index) => (
+              <li
+                key={index}
+                className={`${pathname === tab.link ? activeStyle : ""}`}
+              >
+                <Link href={tab.link} className={menuStyle}>
+                  {tab.icon}
+                  {tab.title}
+                </Link>
+              </li>
+            ))}
+
             <button onClick={handleLogout} className={menuStyle}>
               <SlLogout size={20} />
               Logout

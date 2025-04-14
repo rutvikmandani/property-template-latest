@@ -11,8 +11,9 @@ interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   placeholder?: string;
   error?: string;
   disallowEmptySelection?: boolean;
-  selectedKeys?: string[];
+  selectedKeys?: string[] | number[];
   small?: boolean;
+  selectionMode?: "single" | "multiple";
 }
 
 const SelectField = forwardRef<HTMLSelectElement, SelectProps>(
@@ -27,6 +28,7 @@ const SelectField = forwardRef<HTMLSelectElement, SelectProps>(
       disallowEmptySelection,
       selectedKeys,
       small = false,
+      selectionMode = "single",
     },
     ref
   ) => {
@@ -47,6 +49,7 @@ const SelectField = forwardRef<HTMLSelectElement, SelectProps>(
           onChange={(e) => {
             onChange?.(e);
           }}
+          selectionMode={selectionMode}
         >
           {options.map((option) => (
             <SelectItem key={option.key}>{option.label}</SelectItem>

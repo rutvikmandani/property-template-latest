@@ -144,10 +144,10 @@ const SocialMediaForm = ({ userData }: Props) => {
         {renderInput("linkedin_url", "LinkedIn URL")}
       </div>
       <Button
-        isDisabled={
-          isLoading ||
-          !Object.values(formData).some((value) => value.trim().length > 0)
-        }
+        // isDisabled={
+        //   isLoading ||
+        //   !Object.values(formData).some((value) => value.trim().length > 0)
+        // }
         onPress={handleSubmit}
         className="idx-button mt-3"
       >
